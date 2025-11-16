@@ -96,14 +96,14 @@ export default function Home() {
 
       {/* Features Section */}
       <section id="features" className="bg-white px-6 py-32 dark:bg-zinc-950">
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-5xl">
           <h2 className="mb-24 text-center text-5xl font-bold text-black dark:text-white md:text-6xl">
             Designed for real life
           </h2>
 
           {/* Feature 1: Location-based */}
           <div className="mb-40">
-            <div className="grid gap-12 md:grid-cols-2 md:items-center">
+            <div className="grid gap-16 md:grid-cols-2 md:items-center md:gap-20">
               <div className="order-2 md:order-1">
                 <div className="mb-4 text-5xl">📍</div>
                 <h3 className="mb-4 text-4xl font-semibold text-black dark:text-white">
@@ -138,7 +138,7 @@ export default function Home() {
 
           {/* Feature 2: Personality Insights */}
           <div className="mb-40">
-            <div className="grid gap-12 md:grid-cols-2 md:items-center">
+            <div className="grid gap-16 md:grid-cols-2 md:items-center md:gap-20">
               <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -173,7 +173,7 @@ export default function Home() {
 
           {/* Feature 3: Analytics */}
           <div className="mb-40">
-            <div className="grid gap-12 md:grid-cols-2 md:items-center">
+            <div className="grid gap-16 md:grid-cols-2 md:items-center md:gap-20">
               <div className="order-2 md:order-1">
                 <div className="mb-4 text-5xl">📊</div>
                 <h3 className="mb-4 text-4xl font-semibold text-black dark:text-white">
@@ -208,7 +208,7 @@ export default function Home() {
 
           {/* Feature 4: Customization */}
           <div className="mb-40">
-            <div className="grid gap-12 md:grid-cols-2 md:items-center">
+            <div className="grid gap-16 md:grid-cols-2 md:items-center md:gap-20">
               <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -243,7 +243,7 @@ export default function Home() {
 
           {/* Feature 5: iCloud Sync */}
           <div className="mb-40">
-            <div className="grid gap-12 md:grid-cols-2 md:items-center">
+            <div className="grid gap-16 md:grid-cols-2 md:items-center md:gap-20">
               <div className="order-2 md:order-1">
                 <div className="mb-4 text-5xl">☁️</div>
                 <h3 className="mb-4 text-4xl font-semibold text-black dark:text-white">
@@ -278,7 +278,7 @@ export default function Home() {
 
           {/* Feature 6: Privacy First */}
           <div className="mb-20">
-            <div className="grid gap-12 md:grid-cols-2 md:items-center">
+            <div className="grid gap-16 md:grid-cols-2 md:items-center md:gap-20">
               <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
