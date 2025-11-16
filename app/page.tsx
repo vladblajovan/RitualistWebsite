@@ -55,13 +55,13 @@ export default function Home() {
             </a>
             <a
               href="#testimonials"
-              className="text-sm font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+              className="hidden text-sm font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white md:block"
             >
               Testimonials
             </a>
             <a
               href="#faq"
-              className="text-sm font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+              className="hidden text-sm font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white md:block"
             >
               FAQ
             </a>
@@ -113,48 +113,7 @@ export default function Home() {
             Designed for real life
           </h2>
 
-          {/* Feature 1: Location-based */}
-          <div className="mb-40">
-            <div className="grid grid-cols-2 gap-2 md:items-center md:gap-8">
-              <motion.div
-                initial={{ opacity: 0, x: -100 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="order-2 md:order-1 md:text-right"
-              >
-                <div className="mb-2 hidden text-3xl md:mb-4 md:block md:text-5xl">📍</div>
-                <h3 className="mb-2 text-xl font-semibold text-black dark:text-white md:mb-4 md:text-4xl">
-                  Smart Location Triggers
-                </h3>
-                <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 md:text-xl">
-                  Never miss a habit again. Ritualist uses intelligent geofencing to remind you about your habits when you arrive at specific locations. Hit the gym? Get reminded to log your workout. Arrive home? Time for your evening meditation.
-                </p>
-                <ul className="mt-3 space-y-1 text-xs text-zinc-600 dark:text-zinc-400 md:mt-6 md:space-y-2 md:text-lg">
-                  <li>• Set custom locations for each habit</li>
-                  <li>• Smart notifications at the right moment</li>
-                  <li>• No annoying time-based reminders</li>
-                </ul>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: 100 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="order-1 md:order-2"
-              >
-                <div className="w-full max-w-[120px] md:max-w-[280px] md:ml-auto">
-                  <img
-                    src="/screenshots/location.png"
-                    alt="Location-based habit reminders with geofencing"
-                    className="h-auto w-full rounded-3xl shadow-2xl"
-                  />
-                </div>
-              </motion.div>
-            </div>
-          </div>
-
-          {/* Feature 2: Personality Insights */}
+          {/* Feature 1: Personality Insights */}
           <div className="mb-40">
             <div className="grid grid-cols-2 gap-2 md:items-center md:gap-8">
               <motion.div
@@ -195,7 +154,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Feature 3: Analytics */}
+          {/* Feature 2: Analytics */}
           <div className="mb-40">
             <div className="grid grid-cols-2 gap-2 md:items-center md:gap-8">
               <motion.div
@@ -236,7 +195,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Feature 4: Customization */}
+          {/* Feature 3: Customization */}
           <div className="mb-40">
             <div className="grid grid-cols-2 gap-2 md:items-center md:gap-8">
               <motion.div
@@ -277,7 +236,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Feature 5: iCloud Sync */}
+          {/* Feature 4: Location-based */}
           <div className="mb-40">
             <div className="grid grid-cols-2 gap-2 md:items-center md:gap-8">
               <motion.div
@@ -286,6 +245,62 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
                 className="order-2 md:order-1 md:text-right"
+              >
+                <div className="mb-2 hidden text-3xl md:mb-4 md:block md:text-5xl">📍</div>
+                <h3 className="mb-2 text-xl font-semibold text-black dark:text-white md:mb-4 md:text-4xl">
+                  Smart Location Triggers
+                </h3>
+                <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 md:text-xl">
+                  Never miss a habit again. Ritualist uses intelligent geofencing to remind you about your habits when you arrive at specific locations. Hit the gym? Get reminded to log your workout. Arrive home? Time for your evening meditation.
+                </p>
+                <ul className="mt-3 space-y-1 text-xs text-zinc-600 dark:text-zinc-400 md:mt-6 md:space-y-2 md:text-lg">
+                  <li>• Set custom locations for each habit</li>
+                  <li>• Smart notifications at the right moment</li>
+                  <li>• No annoying time-based reminders</li>
+                </ul>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="order-1 md:order-2"
+              >
+                <div className="w-full max-w-[120px] md:max-w-[280px] md:ml-auto">
+                  <img
+                    src="/screenshots/location.png"
+                    alt="Location-based habit reminders with geofencing"
+                    className="h-auto w-full rounded-3xl shadow-2xl"
+                  />
+                </div>
+              </motion.div>
+            </div>
+          </div>
+
+          {/* Feature 5: iCloud Sync */}
+          <div className="mb-40">
+            <div className="grid grid-cols-2 gap-2 md:items-center md:gap-8">
+              <motion.div
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="order-1"
+              >
+                <div className="w-full max-w-[120px] md:max-w-[280px]">
+                  <img
+                    src="/screenshots/sync.png"
+                    alt="Seamless iCloud sync across all your devices"
+                    className="h-auto w-full rounded-3xl shadow-2xl"
+                  />
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="order-2"
               >
                 <div className="mb-2 hidden text-3xl md:mb-4 md:block md:text-5xl">☁️</div>
                 <h3 className="mb-2 text-xl font-semibold text-black dark:text-white md:mb-4 md:text-4xl">
@@ -300,21 +315,6 @@ export default function Home() {
                   <li>• Your data stays private</li>
                 </ul>
               </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: 100 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="order-1 md:order-2"
-              >
-                <div className="w-full max-w-[120px] md:max-w-[280px] md:ml-auto">
-                  <img
-                    src="/screenshots/sync.png"
-                    alt="Seamless iCloud sync across all your devices"
-                    className="h-auto w-full rounded-3xl shadow-2xl"
-                  />
-                </div>
-              </motion.div>
             </div>
           </div>
 
@@ -326,22 +326,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="order-1"
-              >
-                <div className="w-full max-w-[120px] md:max-w-[280px]">
-                  <img
-                    src="/screenshots/privacy.png"
-                    alt="Your privacy protected with on-device processing"
-                    className="h-auto w-full rounded-3xl shadow-2xl"
-                  />
-                </div>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: 100 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="order-2"
+                className="order-2 md:order-1 md:text-right"
               >
                 <div className="mb-2 hidden text-3xl md:mb-4 md:block md:text-5xl">🔒</div>
                 <h3 className="mb-2 text-xl font-semibold text-black dark:text-white md:mb-4 md:text-4xl">
@@ -356,6 +341,21 @@ export default function Home() {
                   <li>• You own your data completely</li>
                   <li>• No third-party tracking</li>
                 </ul>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="order-1 md:order-2"
+              >
+                <div className="w-full max-w-[120px] md:max-w-[280px] md:ml-auto">
+                  <img
+                    src="/screenshots/privacy.png"
+                    alt="Your privacy protected with on-device processing"
+                    className="h-auto w-full rounded-3xl shadow-2xl"
+                  />
+                </div>
               </motion.div>
             </div>
           </div>
