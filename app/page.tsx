@@ -115,7 +115,7 @@ export default function Home() {
 
           {/* Feature 1: Location-based */}
           <div className="mb-40">
-            <div className="grid grid-cols-2 gap-4 md:items-center md:gap-8">
+            <div className="grid grid-cols-2 gap-3 md:items-center md:gap-8">
               <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -156,7 +156,7 @@ export default function Home() {
 
           {/* Feature 2: Personality Insights */}
           <div className="mb-40">
-            <div className="grid grid-cols-2 gap-4 md:items-center md:gap-8">
+            <div className="grid grid-cols-2 gap-3 md:items-center md:gap-8">
               <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -197,7 +197,7 @@ export default function Home() {
 
           {/* Feature 3: Analytics */}
           <div className="mb-40">
-            <div className="grid grid-cols-2 gap-4 md:items-center md:gap-8">
+            <div className="grid grid-cols-2 gap-3 md:items-center md:gap-8">
               <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -238,7 +238,7 @@ export default function Home() {
 
           {/* Feature 4: Customization */}
           <div className="mb-40">
-            <div className="grid grid-cols-2 gap-4 md:items-center md:gap-8">
+            <div className="grid grid-cols-2 gap-3 md:items-center md:gap-8">
               <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -279,7 +279,7 @@ export default function Home() {
 
           {/* Feature 5: iCloud Sync */}
           <div className="mb-40">
-            <div className="grid grid-cols-2 gap-4 md:items-center md:gap-8">
+            <div className="grid grid-cols-2 gap-3 md:items-center md:gap-8">
               <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -320,7 +320,7 @@ export default function Home() {
 
           {/* Feature 6: Privacy First */}
           <div className="mb-20">
-            <div className="grid grid-cols-2 gap-4 md:items-center md:gap-8">
+            <div className="grid grid-cols-2 gap-3 md:items-center md:gap-8">
               <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
