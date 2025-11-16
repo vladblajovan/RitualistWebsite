@@ -2,8 +2,9 @@
 
 import { FaGithub, FaApple, FaTwitter, FaInstagram, FaTiktok } from 'react-icons/fa';
 import { MdRocketLaunch } from 'react-icons/md';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const taglines = [
   "Master your habits. Master yourself. 💪",
@@ -18,10 +19,15 @@ const taglines = [
 ];
 
 export default function Home() {
-  const [tagline, setTagline] = useState("");
-  const [mounted, setMounted] = useState(false);
+  // Initialize both tagline and mounted state using lazy initialization
+  const [state] = useState(() => {
+    // This code only runs once during initial render
+    const isBrowser = typeof window !== 'undefined';
 
-  useEffect(() => {
+    if (!isBrowser) {
+      return { tagline: "", mounted: false };
+    }
+
     // Get the last used index from localStorage
     const lastIndex = parseInt(localStorage.getItem('lastTaglineIndex') || '-1');
 
@@ -34,9 +40,8 @@ export default function Home() {
     // Save the new index for next time
     localStorage.setItem('lastTaglineIndex', newIndex.toString());
 
-    setTagline(taglines[newIndex]);
-    setMounted(true);
-  }, []);
+    return { tagline: taglines[newIndex], mounted: true };
+  });
 
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-black">
@@ -85,7 +90,7 @@ export default function Home() {
             The only habit tracker that <span className="text-black dark:text-white">knows you</span>
           </p>
           <p className="mb-12 text-lg italic text-zinc-500 dark:text-zinc-500 md:text-xl">
-            {mounted ? tagline : '\u00A0'}
+            {state.mounted ? state.tagline : '\u00A0'}
           </p>
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
             <a
@@ -124,9 +129,11 @@ export default function Home() {
                 className="order-1"
               >
                 <div className="w-full max-w-[120px] md:max-w-[280px]">
-                  <img
+                  <Image
                     src="/screenshots/personality.png"
                     alt="AI personality insights based on your habits"
+                    width={280}
+                    height={560}
                     className="h-auto w-full rounded-3xl shadow-2xl"
                   />
                 </div>
@@ -185,9 +192,11 @@ export default function Home() {
                 className="order-1 md:order-2"
               >
                 <div className="w-full max-w-[120px] md:max-w-[280px] md:ml-auto">
-                  <img
+                  <Image
                     src="/screenshots/analytics.png"
                     alt="Beautiful analytics dashboard with insights and trends"
+                    width={280}
+                    height={560}
                     className="h-auto w-full rounded-3xl shadow-2xl"
                   />
                 </div>
@@ -206,9 +215,11 @@ export default function Home() {
                 className="order-1"
               >
                 <div className="w-full max-w-[120px] md:max-w-[280px]">
-                  <img
+                  <Image
                     src="/screenshots/customization.png"
                     alt="Customize habits with colors, emojis, and categories"
+                    width={280}
+                    height={560}
                     className="h-auto w-full rounded-3xl shadow-2xl"
                   />
                 </div>
@@ -267,9 +278,11 @@ export default function Home() {
                 className="order-1 md:order-2"
               >
                 <div className="w-full max-w-[120px] md:max-w-[280px] md:ml-auto">
-                  <img
+                  <Image
                     src="/screenshots/location.png"
                     alt="Location-based habit reminders with geofencing"
+                    width={280}
+                    height={560}
                     className="h-auto w-full rounded-3xl shadow-2xl"
                   />
                 </div>
@@ -288,9 +301,11 @@ export default function Home() {
                 className="order-1"
               >
                 <div className="w-full max-w-[120px] md:max-w-[280px]">
-                  <img
+                  <Image
                     src="/screenshots/sync.png"
                     alt="Seamless iCloud sync across all your devices"
+                    width={280}
+                    height={560}
                     className="h-auto w-full rounded-3xl shadow-2xl"
                   />
                 </div>
@@ -350,9 +365,11 @@ export default function Home() {
                 className="order-1 md:order-2"
               >
                 <div className="w-full max-w-[120px] md:max-w-[280px] md:ml-auto">
-                  <img
+                  <Image
                     src="/screenshots/privacy.png"
                     alt="Your privacy protected with on-device processing"
+                    width={280}
+                    height={560}
                     className="h-auto w-full rounded-3xl shadow-2xl"
                   />
                 </div>
@@ -411,7 +428,7 @@ export default function Home() {
                 {'★'.repeat(5)}
               </div>
               <p className="mb-4 text-lg text-zinc-700 dark:text-zinc-300">
-                "Finally, a habit tracker that actually understands me. The personality insights are mind-blowing!"
+                &ldquo;Finally, a habit tracker that actually understands me. The personality insights are mind-blowing!&rdquo;
               </p>
               <div className="text-sm font-medium text-zinc-900 dark:text-white">Sarah M.</div>
               <div className="text-sm text-zinc-600 dark:text-zinc-400">Product Designer</div>
@@ -428,7 +445,7 @@ export default function Home() {
                 {'★'.repeat(5)}
               </div>
               <p className="mb-4 text-lg text-zinc-700 dark:text-zinc-300">
-                "The location-based reminders changed everything. I never forget my gym routine anymore."
+                &ldquo;The location-based reminders changed everything. I never forget my gym routine anymore.&rdquo;
               </p>
               <div className="text-sm font-medium text-zinc-900 dark:text-white">Mike T.</div>
               <div className="text-sm text-zinc-600 dark:text-zinc-400">Fitness Enthusiast</div>
@@ -445,7 +462,7 @@ export default function Home() {
                 {'★'.repeat(5)}
               </div>
               <p className="mb-4 text-lg text-zinc-700 dark:text-zinc-300">
-                "Beautiful design and privacy-focused. Exactly what I needed for tracking my daily rituals."
+                &ldquo;Beautiful design and privacy-focused. Exactly what I needed for tracking my daily rituals.&rdquo;
               </p>
               <div className="text-sm font-medium text-zinc-900 dark:text-white">Emma L.</div>
               <div className="text-sm text-zinc-600 dark:text-zinc-400">Entrepreneur</div>
