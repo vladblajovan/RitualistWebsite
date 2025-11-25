@@ -2,9 +2,10 @@
 
 import { FaGithub, FaApple, FaTwitter, FaInstagram, FaTiktok } from 'react-icons/fa';
 import { MdRocketLaunch } from 'react-icons/md';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+
 
 const taglines = [
   "Master your habits. Master yourself. 💪",
@@ -18,17 +19,81 @@ const taglines = [
   "Where habits meet intelligence 💡"
 ];
 
+const softwareApplicationLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Ritualist',
+  applicationCategory: 'LifestyleApplication',
+  operatingSystem: 'iOS, iPadOS',
+  description:
+    'Ritualist is a privacy-first habit tracker app for iPhone and iPad that uses on-device machine learning to turn your daily rituals into insight and progress.',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+  },
+};
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Is Ritualist free to use?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text:
+          'Ritualist offers a free version with core features. Premium features like advanced analytics and unlimited habits are available through a subscription.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Which devices are supported?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text:
+          'Ritualist is available for iPhone and iPad, and your data syncs seamlessly across your devices via iCloud.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How does the personality analysis work?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text:
+          'Our on-device machine learning model analyzes your habit patterns to generate insights about your Big Five personality traits. All processing happens locally on your device for complete privacy.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is my data private?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text:
+          'Yes. Everything runs on your device and your data is stored in your personal iCloud account. We never collect, track, or have access to your information.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I export my data?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text:
+          'You can export all your habit data, analytics, and insights at any time in standard formats like CSV and JSON.',
+      },
+    },
+  ],
+};
+
+
 export default function Home() {
-  // Initialize both tagline and mounted state using lazy initialization
-  const [state] = useState(() => {
-    // This code only runs once during initial render
-    const isBrowser = typeof window !== 'undefined';
+  const [state, setState] = useState({ tagline: '', mounted: false });
+  const [waitlistEmail, setWaitlistEmail] = useState('');
+  const [waitlistSubmitted, setWaitlistSubmitted] = useState(false);
 
-    if (!isBrowser) {
-      return { tagline: "", mounted: false };
-    }
-
-    // Get the last used index from localStorage
+  useEffect(() => {
+    // Only run in the browser
     const lastIndex = parseInt(localStorage.getItem('lastTaglineIndex') || '-1');
 
     // Generate a new random index that's different from the last one
@@ -40,73 +105,281 @@ export default function Home() {
     // Save the new index for next time
     localStorage.setItem('lastTaglineIndex', newIndex.toString());
 
-    return { tagline: taglines[newIndex], mounted: true };
-  });
+    setState({ tagline: taglines[newIndex], mounted: true });
+  }, []);
+
+  const handleWaitlistSubmit = (event: any) => {
+    event.preventDefault();
+    if (!waitlistEmail.trim()) return;
+    setWaitlistSubmitted(true);
+    // TODO: Connect this form to your email provider or backend
+  };
 
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-black">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+      />
       {/* Navigation */}
-      <nav className="fixed top-0 z-50 w-full border-b border-zinc-200 bg-zinc-50/80 backdrop-blur-md dark:border-zinc-800 dark:bg-black/80">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <a href="#" className="text-xl font-bold text-black dark:text-white">
-            Ritualist
-          </a>
-          <div className="flex items-center gap-6">
-            <a
-              href="#features"
-              className="text-sm font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
-            >
-              Features
+      <header>
+        <nav className="fixed top-0 z-50 w-full border-b border-zinc-200 bg-zinc-50/80 backdrop-blur-md dark:border-zinc-800 dark:bg-black/80">
+          <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+            <a href="#" className="flex items-center gap-3 text-2xl font-extrabold">
+              <Image
+                src="/brand-icon.png"
+                alt="Ritualist Logo"
+                width={36}
+                height={36}
+                className="rounded-md"
+              />
+              <span className="bg-gradient-to-r from-[#0A95C2] to-[#0556A6] bg-clip-text text-transparent">
+                Ritualist
+              </span>
             </a>
-            <a
-              href="#testimonials"
-              className="hidden text-sm font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white md:block"
-            >
-              Testimonials
-            </a>
-            <a
-              href="#faq"
-              className="hidden text-sm font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white md:block"
-            >
-              FAQ
-            </a>
-            <a
-              href="#pricing"
-              className="text-sm font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
-            >
-              Pricing
-            </a>
+            <div className="flex items-center gap-6">
+              <a
+                href="#features"
+                className="text-sm md:text-base font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+              >
+                Features
+              </a>
+              <a
+                href="#difference"
+                className="text-sm md:text-base font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+              >
+                Why Ritualist
+              </a>
+              <a
+                href="#testimonials"
+                className="hidden text-sm md:text-base font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white md:block"
+              >
+                Testimonials
+              </a>
+              <a
+                href="#faq"
+                className="hidden text-sm md:text-base font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white md:block"
+              >
+                FAQ
+              </a>
+              <a
+                href="#pricing"
+                className="text-sm md:text-base font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+              >
+                Pricing
+              </a>
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </header>
+
+      <main>
 
       {/* Hero Section */}
       <section className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-zinc-50 to-white px-6 py-20 pt-32 dark:from-black dark:to-zinc-950">
-        <div className="max-w-4xl text-center">
-          <h1 className="mb-6 text-7xl font-bold tracking-tight text-black dark:text-white md:text-8xl lg:text-9xl">
-            Ritualist
-          </h1>
-          <p className="mb-4 text-2xl font-medium text-zinc-600 dark:text-zinc-400 md:text-3xl lg:text-4xl">
-            The only habit tracker that <span className="text-black dark:text-white">knows you</span>
-          </p>
-          <p className="mb-12 text-lg italic text-zinc-500 dark:text-zinc-500 md:text-xl">
-            {state.mounted ? state.tagline : '\u00A0'}
-          </p>
-          <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-            <a
-              href="#"
-              className="flex items-center justify-center gap-3 rounded-full bg-black px-8 py-4 text-lg font-medium text-white transition-all hover:scale-105 hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+  <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-12 lg:flex-row lg:items-center lg:justify-between">
+    {/* Text block */}
+    <div className="max-w-xl text-center lg:text-left">
+      <h1 className="mb-6 text-7xl font-bold tracking-tight text-black dark:text-white md:text-8xl">
+        Ritualist
+      </h1>
+      <p className="mb-4 text-2xl font-medium text-zinc-600 dark:text-zinc-400 md:text-3xl">
+        The privacy-first iOS habit tracker that{' '}
+        <span className="text-black dark:text-white">knows you</span>{' '}
+        — understand your personality, spot patterns that hold you back, and build rituals that actually stick.
+      </p>
+      <p className="mb-10 text-lg italic text-zinc-500 dark:text-zinc-500 md:text-xl">
+        {state.mounted ? state.tagline : '\u00A0'}
+      </p>
+      <div className="flex flex-col items-center gap-2 lg:items-start">
+        <div className="flex w-full flex-col gap-3 items-center sm:flex-row sm:justify-center lg:justify-start">
+          {/* App Store disabled */}
+          <a
+            href="#"
+            aria-disabled="true"
+            className="flex w-full items-center justify-center gap-3 rounded-full bg-zinc-300 px-6 py-3 text-base font-medium text-zinc-600 opacity-70 cursor-not-allowed sm:w-auto sm:px-7 sm:text-lg dark:bg-zinc-700 dark:text-zinc-300"
+          >
+            <FaApple className="h-6 w-6" />
+            App Store
+          </a>
+          {/* TestFlight */}
+          <a
+            href="https://testflight.apple.com/join/RVMZXfse"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex w-full items-center justify-center gap-3 rounded-full border-2 border-black px-6 py-3 text-base font-medium text-black transition-all hover:scale-105 hover:bg-black hover:text-white sm:w-auto sm:px-7 sm:text-lg dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black"
+          >
+            <MdRocketLaunch className="h-5 w-5" />
+            Join Beta on TestFlight
+          </a>
+        </div>
+        <p className="mt-1 text-sm opacity-70 text-center lg:text-left">
+          iOS only · Requires the TestFlight app (free from the App Store).
+        </p>
+      </div>
+    </div>
+
+    {/* Screenshot block */}
+    <div className="w-full max-w-[220px] md:max-w-[260px] lg:max-w-[300px] xl:max-w-[330px]">
+      <div className="rounded-[32px] bg-gradient-to-br from-[#0A95C2] via-[#ffe066] to-[#0556A6] p-[3px] shadow-2xl shadow-cyan-500/30 transition-all duration-500 hover:scale-[1.03]">
+        <div className="rounded-[28px] bg-white p-2 dark:bg-zinc-900">
+          <Image
+            src="/screenshots/privacy.png"
+            alt="Ritualist overview screen"
+            width={640}
+            height={1391}
+            className="h-auto w-full rounded-[24px]"
+            priority
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+      {/* Comparison Section */}
+      <section className="border-t border-zinc-200 bg-white px-6 py-24 dark:border-zinc-800 dark:bg-zinc-900">
+        <div className="mx-auto max-w-5xl">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-4 text-center text-3xl font-bold text-black dark:text-white md:text-4xl"
+          >
+            How Ritualist is different
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="mx-auto mb-10 max-w-3xl text-center text-base text-zinc-600 dark:text-zinc-400"
+          >
+            Most habit apps remind you to tick boxes. Ritualist goes deeper: it learns your patterns, personality, and context so it can help you transform your rituals instead of just chasing streaks.
+          </motion.p>
+          <div className="grid gap-6 md:grid-cols-3">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.15 }}
+              className="rounded-2xl border border-zinc-200 bg-white p-6 text-left dark:border-zinc-800 dark:bg-zinc-900"
             >
-              <FaApple className="h-6 w-6" />
-              App Store
-            </a>
-            <a
-              href="#"
-              className="flex items-center justify-center gap-3 rounded-full border-2 border-black px-8 py-4 text-lg font-medium text-black transition-all hover:scale-105 hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black"
+              <div className="mb-3 text-2xl">📱</div>
+              <h3 className="mb-2 text-lg font-semibold text-black dark:text-white">
+                Versus generic habit trackers
+              </h3>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                Many habit apps stop at streaks and simple reminders. Ritualist adds on-device personality insights, rich analytics, and smart location triggers so your habits adapt to you.
+              </p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="rounded-2xl border border-zinc-200 bg-white p-6 text-left dark:border-zinc-800 dark:bg-zinc-900"
             >
-              <MdRocketLaunch className="h-5 w-5" />
-              TestFlight
-            </a>
+              <div className="mb-3 text-2xl">✅</div>
+              <h3 className="mb-2 text-lg font-semibold text-black dark:text-white">
+                Versus to-do & calendar apps
+              </h3>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                Task managers are built for one-off work, not identity-level change. Ritualist is designed around streaks, rituals, and behavior change—not endless lists and overdue badges.
+              </p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.25 }}
+              className="rounded-2xl border border-zinc-200 bg-white p-6 text-left dark:border-zinc-800 dark:bg-zinc-900"
+            >
+              <div className="mb-3 text-2xl">🌐</div>
+              <h3 className="mb-2 text-lg font-semibold text-black dark:text-white">
+                Versus social & gamified apps
+              </h3>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                Social habit apps chase likes and leaderboards. Ritualist is private by design and focused on deep, personal change—not performative progress.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* How It Works Section */}
+      <section className="bg-zinc-50 px-6 py-20 dark:bg-black">
+        <div className="mx-auto max-w-6xl text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl font-bold text-black dark:text-white md:text-4xl"
+          >
+            How Ritualist works
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="mt-4 text-base text-zinc-600 dark:text-zinc-400 md:text-lg"
+          >
+            Get started in minutes. No account needed. Install the app, create a few core rituals, and let Ritualist&apos;s on-device intelligence learn your patterns over time.
+          </motion.p>
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="rounded-2xl border border-zinc-200 bg-white p-6 text-left dark:border-zinc-800 dark:bg-zinc-900"
+            >
+              <div className="mb-3 text-2xl text-black dark:text-white">①</div>
+              <h3 className="mb-2 text-lg font-semibold text-black dark:text-white">
+                Install & start simple
+              </h3>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                Download Ritualist on your iPhone or iPad and create 3–5 habits that truly matter. No account or signup flow required.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.25 }}
+              className="rounded-2xl border border-zinc-200 bg-white p-6 text-left dark:border-zinc-800 dark:bg-zinc-900"
+            >
+              <div className="mb-3 text-2xl text-black dark:text-white">②</div>
+              <h3 className="mb-2 text-lg font-semibold text-black dark:text-white">
+                Track in your real context
+              </h3>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                Log habits as you go, pair them with locations, and let Ritualist observe what you actually do instead of forcing a rigid timetable.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="rounded-2xl border border-zinc-200 bg-white p-6 text-left dark:border-zinc-800 dark:bg-zinc-900"
+            >
+              <div className="mb-3 text-2xl text-black dark:text-white">③</div>
+              <h3 className="mb-2 text-lg font-semibold text-black dark:text-white">
+                Get insights & adjust
+              </h3>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                Over time, Ritualist uncovers your patterns and personality traits, then helps you refine your rituals so they actually stick.
+              </p>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -129,13 +402,17 @@ export default function Home() {
                 className="order-1"
               >
                 <div className="w-full max-w-[120px] md:max-w-[280px]">
-                  <Image
-                    src="/screenshots/personality.png"
-                    alt="AI personality insights based on your habits"
-                    width={280}
-                    height={560}
-                    className="h-auto w-full rounded-3xl shadow-2xl"
-                  />
+                  <div className="rounded-[32px] bg-gradient-to-br from-[#0A95C2] via-[#ffe066] to-[#0556A6] p-[3px] shadow-2xl shadow-cyan-500/30 transition-all duration-500 hover:scale-[1.03]">
+                    <div className="rounded-[28px] bg-white p-2 dark:bg-zinc-900">
+                      <Image
+                        src="/screenshots/personality.png"
+                        alt="AI personality insights based on your habits"
+                        width={280}
+                        height={560}
+                        className="h-auto w-full rounded-[24px]"
+                      />
+                    </div>
+                  </div>
                 </div>
               </motion.div>
               <motion.div
@@ -150,7 +427,7 @@ export default function Home() {
                   Know Yourself Better
                 </h3>
                 <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 md:text-xl">
-                  Your habits reveal who you are. Ritualist uses machine learning to analyze your behavior patterns and generate insights about your Big Five personality traits. Discover patterns you never knew existed.
+                  Your habits reveal who you are. Ritualist uses on-device machine learning to analyze your behavior patterns and generate insights about your Big Five personality traits. Discover patterns you never knew existed and choose habits that match your traits instead of fighting against them.
                 </p>
                 <ul className="mt-3 space-y-1 text-xs text-zinc-600 dark:text-zinc-400 md:mt-6 md:space-y-2 md:text-lg">
                   <li>• ML-powered personality analysis</li>
@@ -176,7 +453,7 @@ export default function Home() {
                   Beautiful Analytics
                 </h3>
                 <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 md:text-xl">
-                  See your progress come to life. Track your streaks, completion rates, and trends with stunning visualizations. The analytics dashboard makes it easy to understand your habits at a glance.
+                  See your progress come to life. Track your streaks, completion rates, and trends with stunning visualizations. The analytics dashboard makes it easy to understand your habits at a glance, so you don&apos;t lose motivation when life gets messy.
                 </p>
                 <ul className="mt-3 space-y-1 text-xs text-zinc-600 dark:text-zinc-400 md:mt-6 md:space-y-2 md:text-lg">
                   <li>• Current and best streak tracking</li>
@@ -192,13 +469,17 @@ export default function Home() {
                 className="order-1 md:order-2"
               >
                 <div className="w-full max-w-[120px] md:max-w-[280px] md:ml-auto">
-                  <Image
-                    src="/screenshots/analytics.png"
-                    alt="Beautiful analytics dashboard with insights and trends"
-                    width={280}
-                    height={560}
-                    className="h-auto w-full rounded-3xl shadow-2xl"
-                  />
+                  <div className="rounded-[32px] bg-gradient-to-br from-[#0A95C2] via-[#ffe066] to-[#0556A6] p-[3px] shadow-2xl shadow-cyan-500/30 transition-all duration-500 hover:scale-[1.03]">
+                    <div className="rounded-[28px] bg-white p-2 dark:bg-zinc-900">
+                      <Image
+                        src="/screenshots/analytics.png"
+                        alt="Beautiful analytics dashboard with insights and trends"
+                        width={280}
+                        height={560}
+                        className="h-auto w-full rounded-[24px]"
+                      />
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             </div>
@@ -215,13 +496,17 @@ export default function Home() {
                 className="order-1"
               >
                 <div className="w-full max-w-[120px] md:max-w-[280px]">
-                  <Image
-                    src="/screenshots/customization.png"
-                    alt="Customize habits with colors, emojis, and categories"
-                    width={280}
-                    height={560}
-                    className="h-auto w-full rounded-3xl shadow-2xl"
-                  />
+                  <div className="rounded-[32px] bg-gradient-to-br from-[#0A95C2] via-[#ffe066] to-[#0556A6] p-[3px] shadow-2xl shadow-cyan-500/30 transition-all duration-500 hover:scale-[1.03]">
+                    <div className="rounded-[28px] bg-white p-2 dark:bg-zinc-900">
+                      <Image
+                        src="/screenshots/customization.png"
+                        alt="Customize habits with colors, emojis, and categories"
+                        width={280}
+                        height={560}
+                        className="h-auto w-full rounded-[24px]"
+                      />
+                    </div>
+                  </div>
                 </div>
               </motion.div>
               <motion.div
@@ -262,7 +547,7 @@ export default function Home() {
                   Smart Location Triggers
                 </h3>
                 <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 md:text-xl">
-                  Never miss a habit again. Ritualist uses intelligent geofencing to remind you about your habits when you arrive at specific locations. Hit the gym? Get reminded to log your workout. Arrive home? Time for your evening meditation.
+                  Never miss a habit again. Ritualist uses intelligent geofencing to remind you about your habits when you arrive at specific locations, so you&apos;re not relying on annoying time-based reminders that interrupt you at the wrong moment. Hit the gym? Get reminded to log your workout. Arrive home? Time for your evening meditation.
                 </p>
                 <ul className="mt-3 space-y-1 text-xs text-zinc-600 dark:text-zinc-400 md:mt-6 md:space-y-2 md:text-lg">
                   <li>• Set custom locations for each habit</li>
@@ -278,13 +563,17 @@ export default function Home() {
                 className="order-1 md:order-2"
               >
                 <div className="w-full max-w-[120px] md:max-w-[280px] md:ml-auto">
-                  <Image
-                    src="/screenshots/location.png"
-                    alt="Location-based habit reminders with geofencing"
-                    width={280}
-                    height={560}
-                    className="h-auto w-full rounded-3xl shadow-2xl"
-                  />
+                  <div className="rounded-[32px] bg-gradient-to-br from-[#0A95C2] via-[#ffe066] to-[#0556A6] p-[3px] shadow-2xl shadow-cyan-500/30 transition-all duration-500 hover:scale-[1.03]">
+                    <div className="rounded-[28px] bg-white p-2 dark:bg-zinc-900">
+                      <Image
+                        src="/screenshots/location.png"
+                        alt="Location-based habit reminders with geofencing"
+                        width={280}
+                        height={560}
+                        className="h-auto w-full rounded-[24px]"
+                      />
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             </div>
@@ -301,13 +590,17 @@ export default function Home() {
                 className="order-1"
               >
                 <div className="w-full max-w-[120px] md:max-w-[280px]">
-                  <Image
-                    src="/screenshots/sync.png"
-                    alt="Seamless iCloud sync across all your devices"
-                    width={280}
-                    height={560}
-                    className="h-auto w-full rounded-3xl shadow-2xl"
-                  />
+                  <div className="rounded-[32px] bg-gradient-to-br from-[#0A95C2] via-[#ffe066] to-[#0556A6] p-[3px] shadow-2xl shadow-cyan-500/30 transition-all duration-500 hover:scale-[1.03]">
+                    <div className="rounded-[28px] bg-white p-2 dark:bg-zinc-900">
+                      <Image
+                        src="/screenshots/sync.png"
+                        alt="Seamless iCloud sync across all your devices"
+                        width={280}
+                        height={560}
+                        className="h-auto w-full rounded-[24px]"
+                      />
+                    </div>
+                  </div>
                 </div>
               </motion.div>
               <motion.div
@@ -322,7 +615,7 @@ export default function Home() {
                   Seamless Everywhere
                 </h3>
                 <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 md:text-xl">
-                  Your habits follow you. iCloud sync keeps your data up-to-date across all your Apple devices. Start on iPhone, continue on iPad, check on Mac.
+                  Your habits follow you. iCloud sync keeps your data up-to-date across all your Apple devices. Start on iPhone, continue on iPad.
                 </p>
                 <ul className="mt-3 space-y-1 text-xs text-zinc-600 dark:text-zinc-400 md:mt-6 md:space-y-2 md:text-lg">
                   <li>• Automatic iCloud synchronization</li>
@@ -365,13 +658,17 @@ export default function Home() {
                 className="order-1 md:order-2"
               >
                 <div className="w-full max-w-[120px] md:max-w-[280px] md:ml-auto">
-                  <Image
-                    src="/screenshots/privacy.png"
-                    alt="Your privacy protected with on-device processing"
-                    width={280}
-                    height={560}
-                    className="h-auto w-full rounded-3xl shadow-2xl"
-                  />
+                  <div className="rounded-[32px] bg-gradient-to-br from-[#0A95C2] via-[#ffe066] to-[#0556A6] p-[3px] shadow-2xl shadow-cyan-500/30 transition-all duration-500 hover:scale-[1.03]">
+                    <div className="rounded-[28px] bg-white p-2 dark:bg-zinc-900">
+                      <Image
+                        src="/screenshots/privacy.png"
+                        alt="Your privacy protected with on-device processing"
+                        width={280}
+                        height={560}
+                        className="h-auto w-full rounded-[24px]"
+                      />
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             </div>
@@ -392,7 +689,7 @@ export default function Home() {
           </motion.h2>
 
           {/* Stats */}
-          <div className="mb-20 grid gap-12 md:grid-cols-2">
+          <div id="stats" className="mb-20 grid gap-12 md:grid-cols-2">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -506,7 +803,7 @@ export default function Home() {
                 Which devices are supported?
               </h3>
               <p className="text-lg text-zinc-600 dark:text-zinc-400">
-                Ritualist is available for iPhone, iPad, and Mac. Your data syncs seamlessly across all devices via iCloud.
+                Ritualist is available for iPhone and iPad. Your data syncs seamlessly across your devices via iCloud.
               </p>
             </motion.div>
 
@@ -575,6 +872,15 @@ export default function Home() {
           >
             Start free, upgrade to unlock premium features
           </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.15 }}
+            className="mb-12 text-center text-base text-zinc-600 dark:text-zinc-400"
+          >
+            Ritualist is a modern habit tracker app for iPhone and iPad — privacy-first habit tracking with on-device analytics and on-device machine learning (ML) insights.
+          </motion.p>
 
           {/* Free vs Premium Comparison */}
           <div className="mb-16 grid gap-8 md:grid-cols-2">
@@ -623,12 +929,6 @@ export default function Home() {
                   <span>Advanced analytics</span>
                 </li>
               </ul>
-              <a
-                href="#"
-                className="block w-full rounded-full border-2 border-black px-8 py-4 text-center text-lg font-medium text-black transition-all hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black"
-              >
-                Download Free
-              </a>
             </motion.div>
 
             {/* Premium Features Overview */}
@@ -738,9 +1038,10 @@ export default function Home() {
                 <span className="text-4xl font-bold text-white dark:text-black">$49.99</span>
                 <span className="text-zinc-400 dark:text-zinc-600">/year</span>
               </div>
-              <p className="mb-3 text-xs text-zinc-400 dark:text-zinc-600">Save 68% vs weekly</p>
+              <p className="mb-1 text-xs text-zinc-400 dark:text-zinc-600">Save 58% vs monthly</p>
+              <p className="mb-3 text-xs text-zinc-400 dark:text-zinc-600">7-day free trial</p>
               <p className="text-sm text-zinc-300 dark:text-zinc-700">
-                Best value with free trial
+                Best value for committed users
               </p>
             </motion.div>
 
@@ -757,7 +1058,7 @@ export default function Home() {
               </div>
               <h4 className="mb-3 text-lg font-bold text-black dark:text-white">Lifetime</h4>
               <div className="mb-1">
-                <span className="text-4xl font-bold text-black dark:text-white">$100</span>
+                <span className="text-4xl font-bold text-black dark:text-white">$99.99</span>
               </div>
               <p className="mb-3 text-xs text-zinc-600 dark:text-zinc-400">One-time payment</p>
               <p className="text-sm text-zinc-700 dark:text-zinc-300">
@@ -765,6 +1066,20 @@ export default function Home() {
               </p>
             </motion.div>
           </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="mt-8 text-center text-sm text-zinc-600 dark:text-zinc-400"
+          >
+            <p>
+              Cancel anytime. Payments are processed securely by Apple via in-app purchases, and you can manage or stop your subscription directly from your App Store account.
+            </p>
+            <p className="mt-2">
+              No account needed to start. Install the app, create your first rituals, and upgrade only if Ritualist truly helps you.
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -774,16 +1089,44 @@ export default function Home() {
           <h2 className="mb-6 text-5xl font-bold text-black dark:text-white md:text-6xl">
             Ready to build better habits?
           </h2>
-          <p className="mb-12 text-xl text-zinc-600 dark:text-zinc-400">
+          {/* <p className="mb-6 text-xl text-zinc-600 dark:text-zinc-400">
             Download Ritualist for iOS or explore the source code on GitHub.
-          </p>
-          <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
+          </p> */}
+
+          <form
+            onSubmit={handleWaitlistSubmit}
+            className="mx-auto mb-6 flex max-w-xl flex-col gap-3 sm:flex-row"
+          >
+            <input
+              type="email"
+              required
+              value={waitlistEmail}
+              onChange={(e) => setWaitlistEmail(e.target.value)}
+              placeholder="Enter your email to get App Store launch updates"
+              className="flex-1 rounded-full border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-900 shadow-sm focus:border-black focus:outline-none focus:ring-1 focus:ring-black dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:focus:border-white dark:focus:ring-white"
+            />
+            <button
+              type="submit"
+              className="rounded-full bg-black px-6 py-3 text-sm font-medium text-white transition-transform hover:scale-105 dark:bg-white dark:text-black"
+            >
+              Join waitlist
+            </button>
+          </form>
+
+          {waitlistSubmitted && (
+            <p className="mb-6 text-sm text-zinc-500 dark:text-zinc-400">
+              Thanks! You&apos;re on the list. We&apos;ll email you when Ritualist launches on the App Store.
+            </p>
+          )}
+
+          {/* <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
             <a
               href="#"
-              className="inline-flex items-center justify-center gap-3 rounded-full bg-black px-12 py-5 text-xl font-medium text-white transition-all hover:scale-105 hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+              aria-disabled="true"
+              className="inline-flex items-center justify-center gap-3 rounded-full bg-zinc-300 px-12 py-5 text-xl font-medium text-zinc-600 opacity-70 cursor-not-allowed dark:bg-zinc-700 dark:text-zinc-300"
             >
               <FaApple className="h-7 w-7" />
-              Download on App Store
+              App Store
             </a>
             <a
               href="https://github.com/vladblajovan/Ritualist"
@@ -794,9 +1137,11 @@ export default function Home() {
               <FaGithub className="h-6 w-6" />
               View on GitHub
             </a>
-          </div>
+          </div> */}
         </div>
       </section>
+
+      </main>
 
       {/* Footer */}
       <footer className="border-t border-zinc-200 bg-white px-6 py-16 dark:border-zinc-800 dark:bg-zinc-900">
@@ -805,7 +1150,7 @@ export default function Home() {
             <div>
               <h3 className="mb-4 text-lg font-semibold text-black dark:text-white">Ritualist</h3>
               <p className="mb-4 text-sm text-zinc-600 dark:text-zinc-400">
-                A modern iOS habit tracker built with SwiftUI and Clean Architecture.
+                A modern iOS habit tracker app built with SwiftUI and Clean Architecture, focused on privacy-first habit tracking.
               </p>
               <div className="flex gap-4">
                 <a
@@ -846,17 +1191,34 @@ export default function Home() {
               <h3 className="mb-4 text-lg font-semibold text-black dark:text-white">Product</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <a href="#features" className="text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white">
+                  <a
+                    href="#features"
+                    className="text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+                  >
                     Features
                   </a>
                 </li>
                 <li>
-                  <a href="#stats" className="text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white">
+                  <a
+                    href="#stats"
+                    className="text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+                  >
                     Stats
                   </a>
                 </li>
                 <li>
-                  <a href="#pricing" className="text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white">
+                  <a
+                    href="#difference"
+                    className="text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+                  >
+                    Why Ritualist
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#pricing"
+                    className="text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+                  >
                     Pricing
                   </a>
                 </li>
