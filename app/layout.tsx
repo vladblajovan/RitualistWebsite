@@ -17,7 +17,7 @@ const siteUrl = "https://ritualist.app"; // TODO: Replace with your actual domai
 
 export const metadata: Metadata = {
   title: "Ritualist - Build Better Habits",
-  description: "A modern iOS habit tracker with location-based triggers, personality insights, and beautiful analytics.",
+  description: "Transform your life with habits that actually stick. Get AI-powered insights, location reminders, and beautiful analytics. Privacy-first. No social pressure.",
   metadataBase: new URL(siteUrl),
   keywords: ["habit tracker", "iOS app", "productivity", "personality insights", "privacy-first", "location-based reminders", "iCloud sync", "machine learning"],
   authors: [{ name: "Vlad Blajovan" }],

@@ -5,3 +5,41 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Animated gradient border for screenshots */
+@keyframes gradient-rotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-rotate 8s ease infinite;
+}
+
+/* Animated gradient glow effect */
+@keyframes gradient-glow {
+  0% {
+    box-shadow: 0 0 40px rgba(10, 149, 194, 0.4), 0 0 80px rgba(10, 149, 194, 0.2);
+  }
+  33% {
+    box-shadow: 0 0 40px rgba(255, 224, 102, 0.4), 0 0 80px rgba(255, 224, 102, 0.2);
+  }
+  66% {
+    box-shadow: 0 0 40px rgba(5, 86, 166, 0.4), 0 0 80px rgba(5, 86, 166, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 40px rgba(10, 149, 194, 0.4), 0 0 80px rgba(10, 149, 194, 0.2);
+  }
+}
+
+.animate-gradient-glow {
+  animation: gradient-glow 8s ease infinite;
+}
