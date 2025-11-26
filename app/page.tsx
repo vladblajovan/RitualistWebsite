@@ -2,6 +2,7 @@
 
 import { FaGithub, FaApple, FaTwitter, FaInstagram, FaTiktok } from 'react-icons/fa';
 import { MdRocketLaunch } from 'react-icons/md';
+import { HiMenu, HiX } from 'react-icons/hi';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -91,6 +92,7 @@ export default function Home() {
   const [state, setState] = useState({ tagline: '', mounted: false });
   const [waitlistEmail, setWaitlistEmail] = useState('');
   const [waitlistSubmitted, setWaitlistSubmitted] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     // Only run in the browser
@@ -128,7 +130,7 @@ export default function Home() {
       {/* Navigation */}
       <header>
         <nav className="fixed top-0 z-50 w-full border-b border-zinc-200 bg-zinc-50/80 backdrop-blur-md dark:border-zinc-800 dark:bg-black/80">
-          <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+          <div className="mx-auto flex max-w-6xl items-center justify-between py-4 px-6">
             <a href="#" className="flex items-center gap-3 text-2xl font-extrabold">
               <Image
                 src="/brand-icon.png"
@@ -141,45 +143,107 @@ export default function Home() {
                 Ritualist
               </span>
             </a>
-            <div className="flex items-center gap-6">
+
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center gap-6">
               <a
                 href="#features"
-                className="text-sm md:text-base font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+                className="text-base font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
               >
                 Features
               </a>
               <a
                 href="#difference"
-                className="text-sm md:text-base font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+                className="text-base font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
               >
                 Why Ritualist
               </a>
               <a
                 href="#testimonials"
-                className="hidden text-sm md:text-base font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white md:block"
+                className="text-base font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
               >
                 Testimonials
               </a>
               <a
                 href="#faq"
-                className="hidden text-sm md:text-base font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white md:block"
+                className="text-base font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
               >
                 FAQ
               </a>
               <a
                 href="#pricing"
-                className="text-sm md:text-base font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+                className="text-base font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
               >
                 Pricing
               </a>
               <a
                 href="#contact"
-                className="text-sm md:text-base font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+                className="text-base font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
               >
                 Contact
               </a>
             </div>
+
+            {/* Mobile Hamburger Menu Button */}
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 text-zinc-600 hover:text-black dark:text-zinc-400 dark:hover:text-white"
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <HiX className="h-6 w-6" /> : <HiMenu className="h-6 w-6" />}
+            </button>
           </div>
+
+          {/* Mobile Menu */}
+          {mobileMenuOpen && (
+            <div className="md:hidden border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-black">
+              <div className="flex flex-col px-6 py-4 space-y-4">
+                <a
+                  href="#features"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-base font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+                >
+                  Features
+                </a>
+                <a
+                  href="#difference"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-base font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+                >
+                  Why Ritualist
+                </a>
+                <a
+                  href="#testimonials"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-base font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+                >
+                  Testimonials
+                </a>
+                <a
+                  href="#faq"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-base font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+                >
+                  FAQ
+                </a>
+                <a
+                  href="#pricing"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-base font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+                >
+                  Pricing
+                </a>
+                <a
+                  href="#contact"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-base font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+                >
+                  Contact
+                </a>
+              </div>
+            </div>
+          )}
         </nav>
       </header>
 
@@ -202,15 +266,15 @@ export default function Home() {
         {state.mounted ? state.tagline : '\u00A0'}
       </p>
       <div className="flex flex-col items-center gap-2 lg:items-start">
-        <div className="flex w-full flex-col gap-3 items-center sm:flex-row sm:justify-center lg:justify-start">
+        <div className="flex w-full flex-row gap-2 items-center justify-center sm:gap-3 lg:justify-start">
           {/* App Store disabled */}
           <a
             href="#"
             aria-disabled="true"
             aria-label="App Store download - Coming soon"
-            className="flex w-full items-center justify-center gap-3 rounded-full bg-zinc-300 px-6 py-3 text-base font-medium text-zinc-600 opacity-70 cursor-not-allowed sm:w-auto sm:px-7 sm:text-lg dark:bg-zinc-700 dark:text-zinc-300"
+            className="flex items-center justify-center gap-2 rounded-full bg-zinc-300 px-4 py-2 text-sm font-medium text-zinc-600 opacity-70 cursor-not-allowed sm:px-7 sm:py-3 sm:gap-3 sm:text-lg dark:bg-zinc-700 dark:text-zinc-300"
           >
-            <FaApple className="h-6 w-6" aria-hidden="true" />
+            <FaApple className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true" />
             App Store
           </a>
           {/* TestFlight */}
@@ -219,21 +283,19 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Join Ritualist beta on TestFlight (opens in new tab)"
-            className="flex w-full items-center justify-center gap-3 rounded-full border-2 border-black px-6 py-3 text-base font-medium text-black transition-all hover:scale-105 hover:bg-black hover:text-white sm:w-auto sm:px-7 sm:text-lg dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black"
+            className="flex items-center justify-center gap-2 rounded-full border-2 border-black px-4 py-2 text-sm font-medium text-black transition-all hover:scale-105 hover:bg-black hover:text-white sm:px-7 sm:py-3 sm:gap-3 sm:text-lg dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black"
           >
-            <MdRocketLaunch className="h-5 w-5" aria-hidden="true" />
-            Join Beta on TestFlight
+            <MdRocketLaunch className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
+            <span className="sm:hidden">TestFlight</span>
+            <span className="hidden sm:inline">Join Beta on TestFlight</span>
           </a>
         </div>
-        <p className="mt-1 text-sm opacity-70 text-center lg:text-left">
-          iOS only · Requires the TestFlight app (free from the App Store).
-        </p>
       </div>
     </div>
 
     {/* Screenshot block */}
     <div className="w-full max-w-[220px] md:max-w-[260px] lg:max-w-[300px] xl:max-w-[330px]">
-      <div className="rounded-[32px] bg-gradient-to-br from-[#0A95C2] via-[#ffe066] to-[#0556A6] p-[3px] shadow-2xl shadow-cyan-500/30 transition-all duration-500 hover:scale-[1.03]">
+      <div className="rounded-[32px] bg-gradient-to-br from-[#0A95C2] via-[#ffe066] to-[#0556A6] p-[3px] shadow-2xl shadow-cyan-500/30 transition-all duration-500 hover:scale-[1.03] animate-gradient animate-gradient-glow">
         <div className="rounded-[28px] bg-white p-2 dark:bg-zinc-900">
           <Image
             src="/screenshots/privacy.png"
@@ -251,12 +313,12 @@ export default function Home() {
 
       {/* Comparison Section */}
       <section id="difference" className="border-t border-zinc-200 bg-white px-6 py-24 dark:border-zinc-800 dark:bg-zinc-900">
-        <div className="mx-auto max-w-5xl">
+        <div className="mx-auto max-w-6xl text-center">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-4 text-center text-3xl font-bold text-black dark:text-white md:text-4xl"
+            className="text-3xl font-bold text-black dark:text-white md:text-4xl"
           >
             How Ritualist is different
           </motion.h2>
@@ -265,26 +327,11 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="mx-auto mb-10 max-w-3xl text-center text-base text-zinc-600 dark:text-zinc-400"
+            className="mt-4 text-base text-zinc-600 dark:text-zinc-400 md:text-lg"
           >
-            Most habit apps remind you to tick boxes. Ritualist goes deeper: it learns your patterns, personality, and context so it can help you transform your rituals instead of just chasing streaks.
+            What if your habits could understand you better than you understand yourself? Ritualist reveals the patterns you've never noticed and builds rituals that work with your nature—not against it.
           </motion.p>
-          <div className="grid gap-6 md:grid-cols-3">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.15 }}
-              className="rounded-2xl border border-zinc-200 bg-white p-6 text-left dark:border-zinc-800 dark:bg-zinc-900"
-            >
-              <div className="mb-3 text-2xl">📱</div>
-              <h3 className="mb-2 text-lg font-semibold text-black dark:text-white">
-                Versus generic habit trackers
-              </h3>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                Many habit apps stop at streaks and simple reminders. Ritualist adds on-device personality insights, rich analytics, and smart location triggers so your habits adapt to you.
-              </p>
-            </motion.div>
+          <div className="mt-10 grid gap-6 md:grid-cols-3 md:items-start">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -292,14 +339,15 @@ export default function Home() {
               transition={{ delay: 0.2 }}
               className="rounded-2xl border border-zinc-200 bg-white p-6 text-left dark:border-zinc-800 dark:bg-zinc-900"
             >
-              <div className="mb-3 text-2xl">✅</div>
-              <h3 className="mb-2 text-lg font-semibold text-black dark:text-white">
-                Versus to-do & calendar apps
+              <h3 className="mb-2 flex items-start gap-2 text-base font-semibold text-black dark:text-white md:text-lg">
+                <span className="text-xl md:text-2xl">🧠</span>
+                Intelligence that adapts to you
               </h3>
               <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                Task managers are built for one-off work, not identity-level change. Ritualist is designed around streaks, rituals, and behavior change—not endless lists and overdue badges.
+                On-device machine learning reveals your personality patterns and behavior insights, helping you choose habits that match who you are—rather than fighting against your nature.
               </p>
             </motion.div>
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -307,12 +355,28 @@ export default function Home() {
               transition={{ delay: 0.25 }}
               className="rounded-2xl border border-zinc-200 bg-white p-6 text-left dark:border-zinc-800 dark:bg-zinc-900"
             >
-              <div className="mb-3 text-2xl">🌐</div>
-              <h3 className="mb-2 text-lg font-semibold text-black dark:text-white">
-                Versus social & gamified apps
+              <h3 className="mb-2 flex items-start gap-2 text-base font-semibold text-black dark:text-white md:text-lg">
+                <span className="text-xl md:text-2xl">🎯</span>
+                Built for lasting transformation
               </h3>
               <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                Social habit apps chase likes and leaderboards. Ritualist is private by design and focused on deep, personal change—not performative progress.
+                Designed around streaks, rituals, and identity-level change. Every feature helps you build sustainable habits that become part of who you are—not temporary to-do lists.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="rounded-2xl border border-zinc-200 bg-white p-6 text-left dark:border-zinc-800 dark:bg-zinc-900"
+            >
+              <h3 className="mb-2 flex items-start gap-2 text-base font-semibold text-black dark:text-white md:text-lg">
+                <span className="text-xl md:text-2xl">🔐</span>
+                Deeply personal, completely private
+              </h3>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                Your journey is yours alone. Everything runs on-device with zero data collection, so you can focus on genuine growth—without the pressure of social validation.
               </p>
             </motion.div>
           </div>
@@ -329,7 +393,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-3xl font-bold text-black dark:text-white md:text-4xl"
           >
-            How Ritualist works
+            So simple, you'll wonder why you didn't start sooner
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -338,9 +402,9 @@ export default function Home() {
             transition={{ delay: 0.1 }}
             className="mt-4 text-base text-zinc-600 dark:text-zinc-400 md:text-lg"
           >
-            Get started in minutes. No account needed. Install the app, create a few core rituals, and let Ritualist&apos;s on-device intelligence learn your patterns over time.
+            No lengthy onboarding. No confusing settings. Just open the app and start building better habits in under 60 seconds.
           </motion.p>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
+          <div className="mt-10 grid gap-6 md:grid-cols-3 md:items-start">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -348,12 +412,12 @@ export default function Home() {
               transition={{ delay: 0.2 }}
               className="rounded-2xl border border-zinc-200 bg-white p-6 text-left dark:border-zinc-800 dark:bg-zinc-900"
             >
-              <div className="mb-3 text-2xl text-black dark:text-white">①</div>
-              <h3 className="mb-2 text-lg font-semibold text-black dark:text-white">
-                Install & start simple
+              <h3 className="mb-2 flex items-start gap-2 text-base font-semibold text-black dark:text-white md:text-lg">
+                <span className="text-xl md:text-2xl">✨</span>
+                Open & go (literally 60 seconds)
               </h3>
               <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                Download Ritualist on your iPhone or iPad and create 3–5 habits that truly matter. No account or signup flow required.
+                Download the app, tap to create your first habit—maybe "Morning run" or "Read 10 pages." Pick an emoji, choose a color, done. No account required. No form to fill out. You're already building better habits.
               </p>
             </motion.div>
 
@@ -364,12 +428,12 @@ export default function Home() {
               transition={{ delay: 0.25 }}
               className="rounded-2xl border border-zinc-200 bg-white p-6 text-left dark:border-zinc-800 dark:bg-zinc-900"
             >
-              <div className="mb-3 text-2xl text-black dark:text-white">②</div>
-              <h3 className="mb-2 text-lg font-semibold text-black dark:text-white">
-                Track in your real context
+              <h3 className="mb-2 flex items-start gap-2 text-base font-semibold text-black dark:text-white md:text-lg">
+                <span className="text-xl md:text-2xl">👆</span>
+                One tap to track
               </h3>
               <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                Log habits as you go, pair them with locations, and let Ritualist observe what you actually do instead of forcing a rigid timetable.
+                Finished your workout? Just tap the checkmark. That's it. Ritualist automatically logs the time, builds your streak, and updates your analytics. The app adapts to your life—not the other way around.
               </p>
             </motion.div>
 
@@ -380,12 +444,12 @@ export default function Home() {
               transition={{ delay: 0.3 }}
               className="rounded-2xl border border-zinc-200 bg-white p-6 text-left dark:border-zinc-800 dark:bg-zinc-900"
             >
-              <div className="mb-3 text-2xl text-black dark:text-white">③</div>
-              <h3 className="mb-2 text-lg font-semibold text-black dark:text-white">
-                Get insights & adjust
+              <h3 className="mb-2 flex items-start gap-2 text-base font-semibold text-black dark:text-white md:text-lg">
+                <span className="text-xl md:text-2xl">🚀</span>
+                Watch yourself grow
               </h3>
               <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                Over time, Ritualist uncovers your patterns and personality traits, then helps you refine your rituals so they actually stick.
+                Over the next few weeks, you'll see your streaks climb, your patterns emerge, and your personality insights unlock. Before you know it, you've built rituals that stick—effortlessly.
               </p>
             </motion.div>
           </div>
@@ -401,7 +465,7 @@ export default function Home() {
 
           {/* Feature 1: Personality Insights */}
           <div className="mb-40">
-            <div className="grid grid-cols-2 gap-2 md:items-center md:gap-8">
+            <div className="grid grid-cols-2 gap-4 md:items-center md:gap-8">
               <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -409,8 +473,8 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-1"
               >
-                <div className="w-full max-w-[120px] md:max-w-[280px]">
-                  <div className="rounded-[32px] bg-gradient-to-br from-[#0A95C2] via-[#ffe066] to-[#0556A6] p-[3px] shadow-2xl shadow-cyan-500/30 transition-all duration-500 hover:scale-[1.03]">
+                <div className="w-full max-w-[140px] md:max-w-[280px]">
+                  <div className="rounded-[32px] bg-gradient-to-br from-[#0A95C2] via-[#ffe066] to-[#0556A6] p-[3px] shadow-2xl shadow-cyan-500/30 transition-all duration-500 hover:scale-[1.03] animate-gradient">
                     <div className="rounded-[28px] bg-white p-2 dark:bg-zinc-900">
                       <Image
                         src="/screenshots/personality.png"
@@ -430,8 +494,8 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-2"
               >
-                <div className="mb-2 hidden text-3xl md:mb-4 md:block md:text-5xl">🧠</div>
-                <h3 className="mb-2 text-xl font-semibold text-black dark:text-white md:mb-4 md:text-4xl">
+                <h3 className="mb-2 flex items-center gap-2 text-xl font-semibold text-black dark:text-white md:mb-4 md:gap-3 md:text-4xl">
+                  <span className="text-3xl md:text-5xl">🧠</span>
                   Know Yourself Better
                 </h3>
                 <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 md:text-xl">
@@ -448,7 +512,7 @@ export default function Home() {
 
           {/* Feature 2: Analytics */}
           <div className="mb-40">
-            <div className="grid grid-cols-2 gap-2 md:items-center md:gap-8">
+            <div className="grid grid-cols-2 gap-4 md:items-center md:gap-8">
               <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -456,8 +520,8 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-2 md:order-1 md:text-right"
               >
-                <div className="mb-2 hidden text-3xl md:mb-4 md:block md:text-5xl">📊</div>
-                <h3 className="mb-2 text-xl font-semibold text-black dark:text-white md:mb-4 md:text-4xl">
+                <h3 className="mb-2 flex items-center gap-2 text-xl font-semibold text-black dark:text-white md:mb-4 md:gap-3 md:text-4xl md:flex-row-reverse md:justify-start">
+                  <span className="text-3xl md:text-5xl">📊</span>
                   Beautiful Analytics
                 </h3>
                 <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 md:text-xl">
@@ -476,8 +540,8 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-1 md:order-2"
               >
-                <div className="w-full max-w-[120px] md:max-w-[280px] md:ml-auto">
-                  <div className="rounded-[32px] bg-gradient-to-br from-[#0A95C2] via-[#ffe066] to-[#0556A6] p-[3px] shadow-2xl shadow-cyan-500/30 transition-all duration-500 hover:scale-[1.03]">
+                <div className="w-full max-w-[140px] md:max-w-[280px] md:ml-auto">
+                  <div className="rounded-[32px] bg-gradient-to-br from-[#0A95C2] via-[#ffe066] to-[#0556A6] p-[3px] shadow-2xl shadow-cyan-500/30 transition-all duration-500 hover:scale-[1.03] animate-gradient">
                     <div className="rounded-[28px] bg-white p-2 dark:bg-zinc-900">
                       <Image
                         src="/screenshots/analytics.png"
@@ -495,7 +559,7 @@ export default function Home() {
 
           {/* Feature 3: Customization */}
           <div className="mb-40">
-            <div className="grid grid-cols-2 gap-2 md:items-center md:gap-8">
+            <div className="grid grid-cols-2 gap-4 md:items-center md:gap-8">
               <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -503,8 +567,8 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-1"
               >
-                <div className="w-full max-w-[120px] md:max-w-[280px]">
-                  <div className="rounded-[32px] bg-gradient-to-br from-[#0A95C2] via-[#ffe066] to-[#0556A6] p-[3px] shadow-2xl shadow-cyan-500/30 transition-all duration-500 hover:scale-[1.03]">
+                <div className="w-full max-w-[140px] md:max-w-[280px]">
+                  <div className="rounded-[32px] bg-gradient-to-br from-[#0A95C2] via-[#ffe066] to-[#0556A6] p-[3px] shadow-2xl shadow-cyan-500/30 transition-all duration-500 hover:scale-[1.03] animate-gradient">
                     <div className="rounded-[28px] bg-white p-2 dark:bg-zinc-900">
                       <Image
                         src="/screenshots/customization.png"
@@ -524,8 +588,8 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-2"
               >
-                <div className="mb-2 hidden text-3xl md:mb-4 md:block md:text-5xl">🎨</div>
-                <h3 className="mb-2 text-xl font-semibold text-black dark:text-white md:mb-4 md:text-4xl">
+                <h3 className="mb-2 flex items-center gap-2 text-xl font-semibold text-black dark:text-white md:mb-4 md:gap-3 md:text-4xl">
+                  <span className="text-3xl md:text-5xl">🎨</span>
                   Make It Yours
                 </h3>
                 <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 md:text-xl">
@@ -542,7 +606,7 @@ export default function Home() {
 
           {/* Feature 4: Location-based */}
           <div className="mb-40">
-            <div className="grid grid-cols-2 gap-2 md:items-center md:gap-8">
+            <div className="grid grid-cols-2 gap-4 md:items-center md:gap-8">
               <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -550,8 +614,8 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-2 md:order-1 md:text-right"
               >
-                <div className="mb-2 hidden text-3xl md:mb-4 md:block md:text-5xl">📍</div>
-                <h3 className="mb-2 text-xl font-semibold text-black dark:text-white md:mb-4 md:text-4xl">
+                <h3 className="mb-2 flex items-center gap-2 text-xl font-semibold text-black dark:text-white md:mb-4 md:gap-3 md:text-4xl md:flex-row-reverse md:justify-start">
+                  <span className="text-3xl md:text-5xl">📍</span>
                   Smart Location Triggers
                 </h3>
                 <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 md:text-xl">
@@ -570,8 +634,8 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-1 md:order-2"
               >
-                <div className="w-full max-w-[120px] md:max-w-[280px] md:ml-auto">
-                  <div className="rounded-[32px] bg-gradient-to-br from-[#0A95C2] via-[#ffe066] to-[#0556A6] p-[3px] shadow-2xl shadow-cyan-500/30 transition-all duration-500 hover:scale-[1.03]">
+                <div className="w-full max-w-[140px] md:max-w-[280px] md:ml-auto">
+                  <div className="rounded-[32px] bg-gradient-to-br from-[#0A95C2] via-[#ffe066] to-[#0556A6] p-[3px] shadow-2xl shadow-cyan-500/30 transition-all duration-500 hover:scale-[1.03] animate-gradient">
                     <div className="rounded-[28px] bg-white p-2 dark:bg-zinc-900">
                       <Image
                         src="/screenshots/location.png"
@@ -589,7 +653,7 @@ export default function Home() {
 
           {/* Feature 5: iCloud Sync */}
           <div className="mb-40">
-            <div className="grid grid-cols-2 gap-2 md:items-center md:gap-8">
+            <div className="grid grid-cols-2 gap-4 md:items-center md:gap-8">
               <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -597,8 +661,8 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-1"
               >
-                <div className="w-full max-w-[120px] md:max-w-[280px]">
-                  <div className="rounded-[32px] bg-gradient-to-br from-[#0A95C2] via-[#ffe066] to-[#0556A6] p-[3px] shadow-2xl shadow-cyan-500/30 transition-all duration-500 hover:scale-[1.03]">
+                <div className="w-full max-w-[140px] md:max-w-[280px]">
+                  <div className="rounded-[32px] bg-gradient-to-br from-[#0A95C2] via-[#ffe066] to-[#0556A6] p-[3px] shadow-2xl shadow-cyan-500/30 transition-all duration-500 hover:scale-[1.03] animate-gradient">
                     <div className="rounded-[28px] bg-white p-2 dark:bg-zinc-900">
                       <Image
                         src="/screenshots/sync.png"
@@ -618,8 +682,8 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-2"
               >
-                <div className="mb-2 hidden text-3xl md:mb-4 md:block md:text-5xl">☁️</div>
-                <h3 className="mb-2 text-xl font-semibold text-black dark:text-white md:mb-4 md:text-4xl">
+                <h3 className="mb-2 flex items-center gap-2 text-xl font-semibold text-black dark:text-white md:mb-4 md:gap-3 md:text-4xl">
+                  <span className="text-3xl md:text-5xl">☁️</span>
                   Seamless Everywhere
                 </h3>
                 <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 md:text-xl">
@@ -636,7 +700,7 @@ export default function Home() {
 
           {/* Feature 6: Privacy First */}
           <div className="mb-20">
-            <div className="grid grid-cols-2 gap-2 md:items-center md:gap-8">
+            <div className="grid grid-cols-2 gap-4 md:items-center md:gap-8">
               <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -644,8 +708,8 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-2 md:order-1 md:text-right"
               >
-                <div className="mb-2 hidden text-3xl md:mb-4 md:block md:text-5xl">🔒</div>
-                <h3 className="mb-2 text-xl font-semibold text-black dark:text-white md:mb-4 md:text-4xl">
+                <h3 className="mb-2 flex items-center gap-2 text-xl font-semibold text-black dark:text-white md:mb-4 md:gap-3 md:text-4xl md:flex-row-reverse md:justify-start">
+                  <span className="text-3xl md:text-5xl">🔒</span>
                   Your Privacy, Protected
                 </h3>
                 <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 md:text-xl">
@@ -665,8 +729,8 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 className="order-1 md:order-2"
               >
-                <div className="w-full max-w-[120px] md:max-w-[280px] md:ml-auto">
-                  <div className="rounded-[32px] bg-gradient-to-br from-[#0A95C2] via-[#ffe066] to-[#0556A6] p-[3px] shadow-2xl shadow-cyan-500/30 transition-all duration-500 hover:scale-[1.03]">
+                <div className="w-full max-w-[140px] md:max-w-[280px] md:ml-auto">
+                  <div className="rounded-[32px] bg-gradient-to-br from-[#0A95C2] via-[#ffe066] to-[#0556A6] p-[3px] shadow-2xl shadow-cyan-500/30 transition-all duration-500 hover:scale-[1.03] animate-gradient">
                     <div className="rounded-[28px] bg-white p-2 dark:bg-zinc-900">
                       <Image
                         src="/screenshots/privacy.png"
@@ -993,21 +1057,21 @@ export default function Home() {
             Choose your plan
           </motion.h3>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-4">
             {/* Weekly */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="rounded-2xl border-2 border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900"
+              className="rounded-2xl border-2 border-zinc-200 bg-white p-4 md:p-6 dark:border-zinc-800 dark:bg-zinc-900"
             >
-              <h4 className="mb-3 text-lg font-bold text-black dark:text-white">Weekly</h4>
-              <div className="mb-4">
-                <span className="text-4xl font-bold text-black dark:text-white">$2.99</span>
-                <span className="text-zinc-600 dark:text-zinc-400">/week</span>
+              <h4 className="mb-2 text-base font-bold text-black md:mb-3 md:text-lg dark:text-white">Weekly</h4>
+              <div className="mb-3 md:mb-4">
+                <span className="text-2xl font-bold text-black md:text-4xl dark:text-white">$2.99</span>
+                <span className="text-xs text-zinc-600 md:text-base dark:text-zinc-400">/week</span>
               </div>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400">
+              <p className="text-xs text-zinc-600 md:text-sm dark:text-zinc-400">
                 Try premium features short-term
               </p>
             </motion.div>
@@ -1018,14 +1082,14 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="rounded-2xl border-2 border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900"
+              className="rounded-2xl border-2 border-zinc-200 bg-white p-4 md:p-6 dark:border-zinc-800 dark:bg-zinc-900"
             >
-              <h4 className="mb-3 text-lg font-bold text-black dark:text-white">Monthly</h4>
-              <div className="mb-4">
-                <span className="text-4xl font-bold text-black dark:text-white">$9.99</span>
-                <span className="text-zinc-600 dark:text-zinc-400">/month</span>
+              <h4 className="mb-2 text-base font-bold text-black md:mb-3 md:text-lg dark:text-white">Monthly</h4>
+              <div className="mb-3 md:mb-4">
+                <span className="text-2xl font-bold text-black md:text-4xl dark:text-white">$9.99</span>
+                <span className="text-xs text-zinc-600 md:text-base dark:text-zinc-400">/month</span>
               </div>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400">
+              <p className="text-xs text-zinc-600 md:text-sm dark:text-zinc-400">
                 Most flexible option
               </p>
             </motion.div>
@@ -1036,19 +1100,19 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="relative rounded-2xl border-2 border-black bg-black p-6 dark:border-white dark:bg-white"
+              className="relative rounded-2xl border-2 border-black bg-black p-4 md:p-6 dark:border-white dark:bg-white"
             >
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 px-3 py-1 text-xs font-medium text-white">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gradient-to-r from-purple-500 to-pink-500 px-3 py-0.5 text-[10px] font-medium text-white md:px-4 md:py-1 md:text-xs">
                 Most Popular
               </div>
-              <h4 className="mb-3 text-lg font-bold text-white dark:text-black">Annual</h4>
+              <h4 className="mb-2 text-base font-bold text-white md:mb-3 md:text-lg dark:text-black">Annual</h4>
               <div className="mb-1">
-                <span className="text-4xl font-bold text-white dark:text-black">$49.99</span>
-                <span className="text-zinc-400 dark:text-zinc-600">/year</span>
+                <span className="text-2xl font-bold text-white md:text-4xl dark:text-black">$49.99</span>
+                <span className="text-xs text-zinc-400 md:text-base dark:text-zinc-600">/year</span>
               </div>
-              <p className="mb-1 text-xs text-zinc-400 dark:text-zinc-600">Save 58% vs monthly</p>
-              <p className="mb-3 text-xs text-zinc-400 dark:text-zinc-600">7-day free trial</p>
-              <p className="text-sm text-zinc-300 dark:text-zinc-700">
+              <p className="mb-1 text-[10px] text-zinc-400 md:text-xs dark:text-zinc-600">Save 58% vs monthly</p>
+              <p className="mb-2 text-[10px] text-zinc-400 md:mb-3 md:text-xs dark:text-zinc-600">7-day free trial</p>
+              <p className="text-xs text-zinc-300 md:text-sm dark:text-zinc-700">
                 Best value for committed users
               </p>
             </motion.div>
@@ -1059,17 +1123,17 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="relative rounded-2xl border-2 border-purple-500 bg-gradient-to-br from-purple-50 to-pink-50 p-6 dark:border-purple-400 dark:from-purple-950/50 dark:to-pink-950/50"
+              className="relative rounded-2xl border-2 border-purple-500 bg-gradient-to-br from-purple-50 to-pink-50 p-4 md:p-6 dark:border-purple-400 dark:from-purple-950/50 dark:to-pink-950/50"
             >
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-3 py-1 text-xs font-medium text-white">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-3 py-0.5 text-[10px] font-medium text-white md:px-4 md:py-1 md:text-xs">
                 Best Value
               </div>
-              <h4 className="mb-3 text-lg font-bold text-black dark:text-white">Lifetime</h4>
+              <h4 className="mb-2 text-base font-bold text-black md:mb-3 md:text-lg dark:text-white">Lifetime</h4>
               <div className="mb-1">
-                <span className="text-4xl font-bold text-black dark:text-white">$99.99</span>
+                <span className="text-2xl font-bold text-black md:text-4xl dark:text-white">$99.99</span>
               </div>
-              <p className="mb-3 text-xs text-zinc-600 dark:text-zinc-400">One-time payment</p>
-              <p className="text-sm text-zinc-700 dark:text-zinc-300">
+              <p className="mb-2 text-[10px] text-zinc-600 md:mb-3 md:text-xs dark:text-zinc-400">One-time payment</p>
+              <p className="text-xs text-zinc-700 md:text-sm dark:text-zinc-300">
                 Pay once, own forever
               </p>
             </motion.div>
@@ -1081,11 +1145,11 @@ export default function Home() {
             transition={{ delay: 0.2 }}
             className="mt-8 text-center text-sm text-zinc-600 dark:text-zinc-400"
           >
-            <p>
-              Cancel anytime. Payments are processed securely by Apple via in-app purchases, and you can manage or stop your subscription directly from your App Store account.
+            <p className="font-medium text-zinc-700 dark:text-zinc-300">
+              Try free for 7 days, then unlock your full potential for less than a coffee per week.
             </p>
-            <p className="mt-2">
-              No account needed to start. Install the app, create your first rituals, and upgrade only if Ritualist truly helps you.
+            <p className="mt-3">
+              Start free—no credit card required. Install the app, build your first rituals, and experience the difference.
             </p>
           </motion.div>
         </div>
@@ -1164,7 +1228,7 @@ export default function Home() {
             <div>
               <h3 className="mb-4 text-lg font-semibold text-black dark:text-white">Ritualist</h3>
               <p className="mb-4 text-sm text-zinc-600 dark:text-zinc-400">
-                A modern iOS habit tracker app built with SwiftUI and Clean Architecture, focused on privacy-first habit tracking.
+                Transform your life with habits that actually stick. Privacy-first habit tracking with AI insights and smart reminders.
               </p>
               <div className="flex gap-4">
                 <a
