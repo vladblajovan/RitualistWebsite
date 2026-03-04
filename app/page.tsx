@@ -168,21 +168,13 @@ export default function Home() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-6">
-              <button
-                onClick={() => document.documentElement.classList.toggle('dark')}
-                aria-label="Toggle theme"
-                className="flex items-center justify-center rounded-full border border-zinc-300 p-1.5 text-zinc-600 transition hover:border-zinc-400 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-400 dark:hover:border-zinc-500 dark:hover:text-white"
+              <a
+                href="https://www.buymeacoffee.com/vladblajovan"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                {isDark ? (
-                  <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/>
-                  </svg>
-                ) : (
-                  <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/>
-                  </svg>
-                )}
-              </button>
+                <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style={{height: '36px'}} />
+              </a>
               <a
                 href="#features"
                 className={navLinkClass}
@@ -230,27 +222,13 @@ export default function Home() {
           {mobileMenuOpen && (
             <div className="md:hidden border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-black">
               <div className="flex flex-col px-6 py-4 space-y-4">
-                <button
-                  onClick={() => document.documentElement.classList.toggle('dark')}
-                  aria-label="Toggle theme"
-                  className="flex items-center gap-2 text-base font-medium text-zinc-600 dark:text-zinc-400"
+                <a
+                  href="https://www.buymeacoffee.com/vladblajovan"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  {isDark ? (
-                    <>
-                      <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/>
-                      </svg>
-                      Light mode
-                    </>
-                  ) : (
-                    <>
-                      <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/>
-                      </svg>
-                      Dark mode
-                    </>
-                  )}
-                </button>
+                  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style={{height: '32px'}} />
+                </a>
                 <a
                   href="#features"
                   onClick={() => setMobileMenuOpen(false)}
@@ -331,8 +309,7 @@ export default function Home() {
             className="flex items-center justify-center gap-2 rounded-full border-2 border-black px-4 py-2 text-sm font-medium text-black transition-all hover:scale-105 hover:bg-black hover:text-white sm:px-7 sm:py-3 sm:gap-3 sm:text-lg dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black"
           >
             <MdRocketLaunch className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
-            <span className="sm:hidden">TestFlight</span>
-            <span className="hidden sm:inline">Join Beta on TestFlight</span>
+            <span>Join TestFlight</span>
           </a>
         </div>
       </div>
@@ -1308,8 +1285,25 @@ export default function Home() {
               </ul>
             </div>
           </div>
-          <div className="mt-12 border-t border-zinc-200 pt-8 text-center text-sm text-zinc-600 dark:border-zinc-800 dark:text-zinc-400">
-            © 2025–{new Date().getFullYear()} Ritualist. Built with ❤️ by Vlad Blajovan
+          <div className="mt-12 border-t border-zinc-200 pt-8 flex flex-col items-center gap-4 dark:border-zinc-800">
+            <button
+              onClick={() => document.documentElement.classList.toggle('dark')}
+              aria-label="Toggle theme"
+              className="flex items-center justify-center rounded-full border border-zinc-300 p-1.5 text-zinc-600 transition hover:border-zinc-400 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-400 dark:hover:border-zinc-500 dark:hover:text-white"
+            >
+              {isDark ? (
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/>
+                </svg>
+              ) : (
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/>
+                </svg>
+              )}
+            </button>
+            <div className="text-center text-sm text-zinc-600 dark:text-zinc-400">
+              © 2025–{new Date().getFullYear()} Ritualist. Built with ❤️ by Vlad Blajovan
+            </div>
           </div>
         </div>
       </footer>
