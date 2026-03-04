@@ -182,6 +182,12 @@ export default function Home() {
               >
                 Contact
               </a>
+              <a
+                href="/support"
+                className="text-base font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+              >
+                Support
+              </a>
             </div>
 
             {/* Mobile Hamburger Menu Button */}
@@ -240,6 +246,13 @@ export default function Home() {
                   className="text-base font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
                 >
                   Contact
+                </a>
+                <a
+                  href="/support"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-base font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
+                >
+                  Support
                 </a>
               </div>
             </div>
