@@ -31,10 +31,10 @@ export default function SupportPage() {
           <h2 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-3">Contact Us</h2>
           <p className="mb-4 text-zinc-700 dark:text-zinc-300">Have questions, feedback, or need assistance? Reach out to our support team:</p>
           <a
-            href="mailto:vlad.blajovan@outlook.com"
+            href="mailto:ritualist.help@gmail.com"
             className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
           >
-            vlad.blajovan@outlook.com
+            ritualist.help@gmail.com
           </a>
         </section>
 
