@@ -207,15 +207,20 @@ export default function Home() {
               </a>
             </div>
 
-            {/* Mobile Hamburger Menu Button */}
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-zinc-600 hover:text-black dark:text-zinc-400 dark:hover:text-white"
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? <HiX className="h-6 w-6" /> : <HiMenu className="h-6 w-6" />}
-            </button>
+            {/* Mobile BMC button + Hamburger */}
+            <div className="md:hidden flex items-center gap-2">
+              <a href="https://www.buymeacoffee.com/vladblajovan" target="_blank" rel="noopener noreferrer">
+                <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style={{height: '32px'}} />
+              </a>
+              <button
+                type="button"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="p-2 text-zinc-600 hover:text-black dark:text-zinc-400 dark:hover:text-white"
+                aria-label="Toggle menu"
+              >
+                {mobileMenuOpen ? <HiX className="h-6 w-6" /> : <HiMenu className="h-6 w-6" />}
+              </button>
+            </div>
           </div>
 
           {/* Mobile Menu */}
