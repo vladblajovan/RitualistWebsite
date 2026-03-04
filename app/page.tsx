@@ -107,8 +107,6 @@ const faqLd = {
 
 export default function Home() {
   const [state, setState] = useState({ tagline: '', mounted: false });
-  const [waitlistEmail, setWaitlistEmail] = useState('');
-  const [waitlistSubmitted, setWaitlistSubmitted] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -127,12 +125,6 @@ export default function Home() {
     setState({ tagline: taglines[newIndex], mounted: true });
   }, []);
 
-  const handleWaitlistSubmit = (event: any) => {
-    event.preventDefault();
-    if (!waitlistEmail.trim()) return;
-    setWaitlistSubmitted(true);
-    // TODO: Connect this form to your email provider or backend
-  };
 
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-black">
@@ -193,12 +185,6 @@ export default function Home() {
               >
                 Pricing
               </a>
-              <a
-                href="#contact"
-                className="text-base font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
-              >
-                Contact
-              </a>
             </div>
 
             {/* Mobile Hamburger Menu Button */}
@@ -251,13 +237,6 @@ export default function Home() {
                 >
                   Pricing
                 </a>
-                <a
-                  href="#contact"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-base font-medium text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
-                >
-                  Contact
-                </a>
               </div>
             </div>
           )}
@@ -271,7 +250,7 @@ export default function Home() {
   <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-12 lg:flex-row lg:items-center lg:justify-between">
     {/* Text block */}
     <div className="max-w-xl text-center lg:text-left">
-      <h1 className="mb-6 text-7xl font-bold tracking-tight text-black dark:text-white md:text-8xl">
+      <h1 className="mb-6 text-7xl font-bold tracking-tight text-black dark:text-white md:text-8xl hidden md:block">
         Ritualist
       </h1>
       <p className="mb-4 text-2xl font-medium text-zinc-600 dark:text-zinc-400 md:text-3xl">
@@ -1180,70 +1159,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section id="contact" className="bg-zinc-50 px-6 py-32 dark:bg-black">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="mb-6 text-5xl font-bold text-black dark:text-white md:text-6xl">
-            Ready to build better habits?
-          </h2>
-          {/* <p className="mb-6 text-xl text-zinc-600 dark:text-zinc-400">
-            Download Ritualist for iOS or explore the source code on GitHub.
-          </p> */}
-
-          <form
-            onSubmit={handleWaitlistSubmit}
-            className="mx-auto mb-6 flex max-w-xl flex-col gap-3 sm:flex-row"
-          >
-            <label htmlFor="waitlist-email" className="sr-only">
-              Email address for App Store launch updates
-            </label>
-            <input
-              id="waitlist-email"
-              type="email"
-              required
-              value={waitlistEmail}
-              onChange={(e) => setWaitlistEmail(e.target.value)}
-              placeholder="Enter your email to get App Store launch updates"
-              aria-label="Email address for App Store launch updates"
-              className="flex-1 rounded-full border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-900 shadow-sm focus:border-black focus:outline-none focus:ring-1 focus:ring-black dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:focus:border-white dark:focus:ring-white"
-            />
-            <button
-              type="submit"
-              aria-label="Join waitlist for App Store launch"
-              className="rounded-full bg-black px-6 py-3 text-sm font-medium text-white transition-transform hover:scale-105 dark:bg-white dark:text-black"
-            >
-              Join waitlist
-            </button>
-          </form>
-
-          {waitlistSubmitted && (
-            <p className="mb-6 text-sm text-zinc-500 dark:text-zinc-400">
-              Thanks! You&apos;re on the list. We&apos;ll email you when Ritualist launches on the App Store.
-            </p>
-          )}
-
-          {/* <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-            <a
-              href="#"
-              aria-disabled="true"
-              className="inline-flex items-center justify-center gap-3 rounded-full bg-zinc-300 px-12 py-5 text-xl font-medium text-zinc-600 opacity-70 cursor-not-allowed dark:bg-zinc-700 dark:text-zinc-300"
-            >
-              <FaApple className="h-7 w-7" />
-              App Store
-            </a>
-            <a
-              href="https://github.com/vladblajovan/Ritualist"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 rounded-full border-2 border-zinc-300 px-12 py-5 text-xl font-medium text-zinc-700 transition-all hover:scale-105 hover:border-zinc-400 hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-600 dark:hover:bg-zinc-900"
-            >
-              <FaGithub className="h-6 w-6" />
-              View on GitHub
-            </a>
-          </div> */}
-        </div>
-      </section>
-
       </main>
 
       {/* Footer */}
@@ -1348,16 +1263,6 @@ export default function Home() {
                     className="text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
                   >
                     Report Issues
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://github.com/vladblajovan/Ritualist/blob/main/LICENSE"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
-                  >
-                    License
                   </a>
                 </li>
                 <li>
