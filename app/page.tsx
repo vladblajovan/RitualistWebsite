@@ -85,6 +85,22 @@ const faqLd = {
           'You can export all your habit data, analytics, and insights at any time in standard formats like CSV and JSON.',
       },
     },
+    {
+      '@type': 'Question',
+      name: 'How do I restore my purchases?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Go to Settings > tap "Restore Purchases" to restore any previous subscriptions on your current device.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How do I cancel my subscription?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Subscriptions are managed through your Apple ID. Go to Settings > Apple ID > Subscriptions to manage or cancel.',
+      },
+    },
   ],
 };
 
@@ -921,6 +937,34 @@ export default function Home() {
                 Yes! You can export all your habit data, analytics, and insights at any time in standard formats like CSV and JSON.
               </p>
             </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+            >
+              <h3 className="mb-3 text-xl font-semibold text-black dark:text-white">
+                How do I restore my purchases?
+              </h3>
+              <p className="text-lg text-zinc-600 dark:text-zinc-400">
+                Go to Settings &gt; tap "Restore Purchases" to restore any previous subscriptions on your current device.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6 }}
+            >
+              <h3 className="mb-3 text-xl font-semibold text-black dark:text-white">
+                How do I cancel my subscription?
+              </h3>
+              <p className="text-lg text-zinc-600 dark:text-zinc-400">
+                Subscriptions are managed through your Apple ID. Go to Settings &gt; Apple ID &gt; Subscriptions to manage or cancel.
+              </p>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -1335,7 +1379,7 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-12 border-t border-zinc-200 pt-8 text-center text-sm text-zinc-600 dark:border-zinc-800 dark:text-zinc-400">
-            © 2025 Ritualist. Built with ❤️ by Vlad Blajovan
+            © 2025–2026 Ritualist. Built with ❤️ by Vlad Blajovan
           </div>
         </div>
       </footer>

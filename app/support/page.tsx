@@ -43,6 +43,36 @@ export default function SupportPage() {
 
           <div className="space-y-3">
             <div className="bg-zinc-50 dark:bg-zinc-900 border-l-4 border-blue-500 rounded-r-lg px-4 py-4">
+              <h3 className="font-semibold text-blue-600 dark:text-blue-400 mb-1">Is Ritualist free to use?</h3>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">Ritualist offers a free version with core features. Premium features like advanced analytics and unlimited habits are available through a subscription.</p>
+            </div>
+
+            <div className="bg-zinc-50 dark:bg-zinc-900 border-l-4 border-blue-500 rounded-r-lg px-4 py-4">
+              <h3 className="font-semibold text-blue-600 dark:text-blue-400 mb-1">Which devices are supported?</h3>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">Ritualist is available for iPhone and iPad. Your data syncs seamlessly across all your Apple devices via iCloud.</p>
+            </div>
+
+            <div className="bg-zinc-50 dark:bg-zinc-900 border-l-4 border-blue-500 rounded-r-lg px-4 py-4">
+              <h3 className="font-semibold text-blue-600 dark:text-blue-400 mb-1">Is my data private?</h3>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">Absolutely. Everything runs on your device and your data is stored in your personal iCloud account. We never collect, track, or have access to your information.</p>
+            </div>
+
+            <div className="bg-zinc-50 dark:bg-zinc-900 border-l-4 border-blue-500 rounded-r-lg px-4 py-4">
+              <h3 className="font-semibold text-blue-600 dark:text-blue-400 mb-1">How does the personality analysis work?</h3>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">Our on-device ML model analyzes your habit patterns to generate insights about your Big Five personality traits. All processing happens locally on your device for complete privacy.</p>
+            </div>
+
+            <div className="bg-zinc-50 dark:bg-zinc-900 border-l-4 border-blue-500 rounded-r-lg px-4 py-4">
+              <h3 className="font-semibold text-blue-600 dark:text-blue-400 mb-1">Is my data synced across devices?</h3>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">Yes! Ritualist uses iCloud to sync your habits, progress, and settings across all your Apple devices automatically.</p>
+            </div>
+
+            <div className="bg-zinc-50 dark:bg-zinc-900 border-l-4 border-blue-500 rounded-r-lg px-4 py-4">
+              <h3 className="font-semibold text-blue-600 dark:text-blue-400 mb-1">How do I export my data?</h3>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">Go to Settings &gt; Export Data to download a backup of all your habits and progress in standard formats like CSV and JSON.</p>
+            </div>
+
+            <div className="bg-zinc-50 dark:bg-zinc-900 border-l-4 border-blue-500 rounded-r-lg px-4 py-4">
               <h3 className="font-semibold text-blue-600 dark:text-blue-400 mb-1">How do I restore my purchases?</h3>
               <p className="text-sm text-zinc-600 dark:text-zinc-400">Go to Settings &gt; tap "Restore Purchases" to restore any previous subscriptions on your current device.</p>
             </div>
@@ -50,16 +80,6 @@ export default function SupportPage() {
             <div className="bg-zinc-50 dark:bg-zinc-900 border-l-4 border-blue-500 rounded-r-lg px-4 py-4">
               <h3 className="font-semibold text-blue-600 dark:text-blue-400 mb-1">How do I cancel my subscription?</h3>
               <p className="text-sm text-zinc-600 dark:text-zinc-400">Subscriptions are managed through your Apple ID. Go to Settings &gt; Apple ID &gt; Subscriptions to manage or cancel.</p>
-            </div>
-
-            <div className="bg-zinc-50 dark:bg-zinc-900 border-l-4 border-blue-500 rounded-r-lg px-4 py-4">
-              <h3 className="font-semibold text-blue-600 dark:text-blue-400 mb-1">Is my data synced across devices?</h3>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400">Yes! Ritualist uses iCloud to sync your habits, progress, and settings across all your Apple devices.</p>
-            </div>
-
-            <div className="bg-zinc-50 dark:bg-zinc-900 border-l-4 border-blue-500 rounded-r-lg px-4 py-4">
-              <h3 className="font-semibold text-blue-600 dark:text-blue-400 mb-1">How do I export my data?</h3>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400">Go to Settings &gt; Export Data to download a backup of all your habits and progress.</p>
             </div>
           </div>
         </section>
@@ -69,7 +89,7 @@ export default function SupportPage() {
             <Link href="/privacy" className="hover:text-zinc-900 dark:hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-zinc-900 dark:hover:text-white transition-colors">Terms of Service</Link>
           </div>
-          <p className="text-sm text-zinc-400 dark:text-zinc-500">© 2025 Ritualist. All rights reserved.</p>
+          <p className="text-sm text-zinc-400 dark:text-zinc-500">© 2025–2026 Ritualist. All rights reserved.</p>
         </div>
       </main>
     </div>
