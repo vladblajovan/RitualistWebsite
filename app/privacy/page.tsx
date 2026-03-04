@@ -140,7 +140,7 @@ export default function PrivacyPage() {
           </div>
         </section>
 
-        <p className="text-center text-sm text-zinc-400 dark:text-zinc-500">© 2025–2026 Ritualist. All rights reserved.</p>
+        <p className="text-center text-sm text-zinc-400 dark:text-zinc-500">© 2025–{new Date().getFullYear()} Ritualist. All rights reserved.</p>
       </main>
     </div>
   );

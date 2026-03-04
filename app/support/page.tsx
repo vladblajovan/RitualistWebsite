@@ -89,7 +89,7 @@ export default function SupportPage() {
             <Link href="/privacy" className="hover:text-zinc-900 dark:hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-zinc-900 dark:hover:text-white transition-colors">Terms of Service</Link>
           </div>
-          <p className="text-sm text-zinc-400 dark:text-zinc-500">© 2025–2026 Ritualist. All rights reserved.</p>
+          <p className="text-sm text-zinc-400 dark:text-zinc-500">© 2025–{new Date().getFullYear()} Ritualist. All rights reserved.</p>
         </div>
       </main>
     </div>
