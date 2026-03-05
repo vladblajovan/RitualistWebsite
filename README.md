@@ -130,7 +130,6 @@ The website accurately reflects the app's pricing:
 - **Weekly:** $2.99/week
 - **Monthly:** $9.99/month
 - **Annual:** $49.99/year (Most Popular)
-- **Lifetime:** $100 one-time payment
 
 ## Related Projects
 
