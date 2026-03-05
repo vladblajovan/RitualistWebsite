@@ -332,7 +332,7 @@ export default function Home() {
 </section>
 
       {/* Comparison Section */}
-      <section id="difference" className="border-t border-zinc-200 bg-white px-6 py-24 dark:border-zinc-800 dark:bg-zinc-900">
+      <section id="difference" className="border-t border-zinc-200 bg-white px-6 py-16 dark:border-zinc-800 dark:bg-zinc-900">
         <div className="mx-auto max-w-6xl text-center">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -477,7 +477,7 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="bg-white px-6 py-32 dark:bg-zinc-950">
+      <section id="features" className="bg-white px-6 py-20 dark:bg-zinc-950">
         <div className="mx-auto max-w-5xl">
           <h2 className="mb-24 text-center text-5xl font-bold text-black dark:text-white md:text-6xl">
             Designed for real life
@@ -769,7 +769,7 @@ export default function Home() {
       </section>
 
       {/* Stats & Testimonials Section */}
-      <section id="testimonials" className="bg-zinc-50 px-6 py-32 dark:bg-black">
+      <section id="testimonials" className="bg-zinc-50 px-6 py-20 dark:bg-black">
         <div className="mx-auto max-w-6xl">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -861,7 +861,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="border-y border-zinc-200 bg-white px-6 py-32 dark:border-zinc-800 dark:bg-zinc-900">
+      <section id="faq" className="border-y border-zinc-200 bg-white px-6 py-20 dark:border-zinc-800 dark:bg-zinc-900">
         <div className="mx-auto max-w-4xl">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -973,7 +973,7 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="bg-zinc-50 px-6 py-32 dark:bg-black">
+      <section id="pricing" className="bg-zinc-50 px-6 py-20 dark:bg-black">
         <div className="mx-auto max-w-6xl">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -1102,7 +1102,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="mb-8 text-center text-3xl font-bold text-black dark:text-white"
           >
-            Choose your plan
+            Available plans
           </motion.h3>
 
           <div className="grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-3">
@@ -1186,7 +1186,7 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-zinc-200 bg-white px-6 py-16 dark:border-zinc-800 dark:bg-zinc-900">
+      <footer className="border-t border-zinc-200 bg-white px-6 py-10 dark:border-zinc-800 dark:bg-zinc-900">
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-12 md:grid-cols-3">
             <div>
@@ -1283,7 +1283,7 @@ export default function Home() {
               </ul>
             </div>
           </div>
-          <div className="mt-12 border-t border-zinc-200 pt-8 flex flex-col items-center gap-4 dark:border-zinc-800">
+          <div className="mt-12 border-t border-zinc-200 pt-8 flex items-center justify-center gap-3 dark:border-zinc-800">
             <button
               onClick={() => document.documentElement.classList.toggle('dark')}
               aria-label="Toggle theme"
@@ -1299,9 +1299,9 @@ export default function Home() {
                 </svg>
               )}
             </button>
-            <div className="text-center text-sm text-zinc-600 dark:text-zinc-400">
+            <span className="text-sm text-zinc-600 dark:text-zinc-400">
               © 2025–{new Date().getFullYear()} Ritualist. Built with ❤️ by Vlad Blajovan
-            </div>
+            </span>
           </div>
         </div>
       </footer>
