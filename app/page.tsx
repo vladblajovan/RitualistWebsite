@@ -4,7 +4,7 @@ import { FaGithub, FaApple, FaTwitter, FaInstagram, FaTiktok } from 'react-icons
 import { MdRocketLaunch } from 'react-icons/md';
 import { HiMenu, HiX } from 'react-icons/hi';
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, MotionConfig } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -112,7 +112,6 @@ export default function Home() {
   const [state, setState] = useState({ tagline: '', mounted: false });
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
-
   useEffect(() => {
     setIsDark(document.documentElement.classList.contains('dark'));
     const observer = new MutationObserver(() => {
@@ -140,6 +139,7 @@ export default function Home() {
 
 
   return (
+    <MotionConfig reducedMotion="user">
     <div className="min-h-screen bg-zinc-50 dark:bg-black">
       <script
         type="application/ld+json"
@@ -205,6 +205,21 @@ export default function Home() {
               >
                 Pricing
               </a>
+              <button
+                onClick={() => document.documentElement.classList.toggle('dark')}
+                aria-label="Toggle theme"
+                className="flex items-center justify-center rounded-full border border-zinc-300 p-1.5 text-zinc-600 transition hover:border-zinc-400 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-400 dark:hover:border-zinc-500 dark:hover:text-white"
+              >
+                {isDark ? (
+                  <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/>
+                  </svg>
+                ) : (
+                  <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/>
+                  </svg>
+                )}
+              </button>
             </div>
 
             {/* Mobile BMC button + Hamburger */}
@@ -272,7 +287,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-zinc-50 to-white px-6 py-20 pt-32 dark:from-black dark:to-zinc-950">
-  <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-12 lg:flex-row lg:items-center lg:justify-between">
+  <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-12 lg:flex-row lg:items-center lg:justify-center lg:gap-16">
     {/* Text block */}
     <div className="max-w-xl text-center lg:text-left">
       <h1 className="mb-6 text-7xl font-bold tracking-tight text-black dark:text-white md:text-8xl hidden md:block">
@@ -1283,22 +1298,7 @@ export default function Home() {
               </ul>
             </div>
           </div>
-          <div className="mt-12 border-t border-zinc-200 pt-8 flex items-center justify-center gap-3 dark:border-zinc-800">
-            <button
-              onClick={() => document.documentElement.classList.toggle('dark')}
-              aria-label="Toggle theme"
-              className="flex items-center justify-center rounded-full border border-zinc-300 p-1.5 text-zinc-600 transition hover:border-zinc-400 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-400 dark:hover:border-zinc-500 dark:hover:text-white"
-            >
-              {isDark ? (
-                <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/>
-                </svg>
-              ) : (
-                <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/>
-                </svg>
-              )}
-            </button>
+          <div className="mt-12 border-t border-zinc-200 pt-8 text-center dark:border-zinc-800">
             <span className="text-sm text-zinc-600 dark:text-zinc-400">
               © 2025–{new Date().getFullYear()} Ritualist. Built with ❤️ by Vlad Blajovan
             </span>
@@ -1306,5 +1306,6 @@ export default function Home() {
         </div>
       </footer>
     </div>
+    </MotionConfig>
   );
 }

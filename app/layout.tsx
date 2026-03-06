@@ -78,6 +78,8 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="color-scheme" content="light dark" />
+        <meta name="theme-color" content="#f9fafb" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
         {/* Google Analytics – set NEXT_PUBLIC_GA_ID in GitHub Actions secret */}
         {GA_ID && (
           <>

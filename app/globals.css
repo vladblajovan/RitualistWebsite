@@ -43,3 +43,12 @@ html {
 .animate-gradient-glow {
   animation: gradient-glow 8s ease infinite;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-gradient {
+    animation: none;
+  }
+  .animate-gradient-glow {
+    animation: none;
+  }
+}
