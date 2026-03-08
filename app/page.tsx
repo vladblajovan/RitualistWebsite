@@ -169,13 +169,6 @@ export default function Home() {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-6">
               <a
-                href="https://www.buymeacoffee.com/vladblajovan"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style={{height: '36px'}} />
-              </a>
-              <a
                 href="#features"
                 className={navLinkClass}
               >
@@ -222,11 +215,8 @@ export default function Home() {
               </button>
             </div>
 
-            {/* Mobile BMC button + Hamburger */}
+            {/* Mobile Hamburger */}
             <div className="md:hidden flex items-center gap-2">
-              <a href="https://www.buymeacoffee.com/vladblajovan" target="_blank" rel="noopener noreferrer">
-                <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style={{height: '32px'}} />
-              </a>
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -1298,7 +1288,10 @@ export default function Home() {
               </ul>
             </div>
           </div>
-          <div className="mt-12 border-t border-zinc-200 pt-8 text-center dark:border-zinc-800">
+          <div className="mt-12 border-t border-zinc-200 pt-8 dark:border-zinc-800 flex flex-col items-center gap-4">
+            <a href="https://www.buymeacoffee.com/vladblajovan" target="_blank" rel="noopener noreferrer">
+              <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style={{height: '40px'}} />
+            </a>
             <span className="text-sm text-zinc-600 dark:text-zinc-400">
               © 2025–{new Date().getFullYear()} Ritualist. Built with ❤️ by Vlad Blajovan
             </span>
