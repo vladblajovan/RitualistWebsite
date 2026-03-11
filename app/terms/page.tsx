@@ -29,7 +29,7 @@ export default function TermsPage() {
 
         <section className="mb-8 pb-8 border-b border-zinc-200 dark:border-zinc-800">
           <h2 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-3">1. Acceptance of Terms</h2>
-          <p className="text-zinc-700 dark:text-zinc-300">By downloading, installing, or using Ritualist ("the App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the App.</p>
+          <p className="text-zinc-700 dark:text-zinc-300">By downloading, installing, or using Ritualist (&ldquo;the App&rdquo;), you agree to be bound by these Terms of Service (&ldquo;Terms&rdquo;). If you do not agree to these Terms, do not use the App.</p>
         </section>
 
         <section className="mb-8 pb-8 border-b border-zinc-200 dark:border-zinc-800">
@@ -74,7 +74,7 @@ export default function TermsPage() {
           </ul>
           <h3 className="font-semibold mb-2">4.3 Payment Terms</h3>
           <ul className="list-disc pl-5 mb-4 space-y-1 text-zinc-700 dark:text-zinc-300">
-            <li>All payments are processed through Apple's App Store</li>
+            <li>All payments are processed through Apple&apos;s App Store</li>
             <li>Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current period</li>
             <li>You can manage and cancel subscriptions in your App Store account settings</li>
             <li>Prices are in USD and may vary by region</li>
@@ -115,7 +115,7 @@ export default function TermsPage() {
         <section className="mb-8 pb-8 border-b border-zinc-200 dark:border-zinc-800">
           <h2 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-3">9. Disclaimers</h2>
           <div className="bg-yellow-50 dark:bg-yellow-950/20 border-l-4 border-yellow-400 px-4 py-3 mb-4 rounded-r-lg">
-            <p className="font-semibold text-zinc-800 dark:text-zinc-200">THE APP IS PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND.</p>
+            <p className="font-semibold text-zinc-800 dark:text-zinc-200">THE APP IS PROVIDED &ldquo;AS IS&rdquo; WITHOUT WARRANTIES OF ANY KIND.</p>
           </div>
           <p className="mb-3 text-zinc-700 dark:text-zinc-300">To the maximum extent permitted by law:</p>
           <ul className="list-disc pl-5 mb-4 space-y-1 text-zinc-700 dark:text-zinc-300">

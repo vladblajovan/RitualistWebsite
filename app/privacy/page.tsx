@@ -29,7 +29,7 @@ export default function PrivacyPage() {
 
         <section className="mb-8 pb-8 border-b border-zinc-200 dark:border-zinc-800">
           <h2 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-3">Introduction</h2>
-          <p className="mb-3 text-zinc-700 dark:text-zinc-300">Ritualist ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our iOS application.</p>
+          <p className="mb-3 text-zinc-700 dark:text-zinc-300">Ritualist (&ldquo;we&rdquo;, &ldquo;our&rdquo;, or &ldquo;us&rdquo;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our iOS application.</p>
           <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg px-4 py-3 text-sm text-zinc-700 dark:text-zinc-300">
             <strong>Key Point:</strong> Ritualist is designed with privacy first. Your habit data stays on your device and in your personal iCloud account. We do not have access to your data.
           </div>
@@ -59,17 +59,17 @@ export default function PrivacyPage() {
         <section className="mb-8 pb-8 border-b border-zinc-200 dark:border-zinc-800">
           <h2 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-3">How We Store Your Data</h2>
           <h3 className="font-semibold mb-2">Local Storage</h3>
-          <p className="mb-4 text-zinc-700 dark:text-zinc-300">All your habit data is stored locally on your device using Apple's secure storage mechanisms.</p>
+          <p className="mb-4 text-zinc-700 dark:text-zinc-300">All your habit data is stored locally on your device using Apple&apos;s secure storage mechanisms.</p>
           <h3 className="font-semibold mb-2">iCloud Sync</h3>
-          <p className="mb-2 text-zinc-700 dark:text-zinc-300">If you're signed into iCloud, your data automatically syncs across your Apple devices using Apple's CloudKit service. This means:</p>
+          <p className="mb-2 text-zinc-700 dark:text-zinc-300">If you&apos;re signed into iCloud, your data automatically syncs across your Apple devices using Apple&apos;s CloudKit service. This means:</p>
           <ul className="list-disc pl-5 mb-4 space-y-1 text-zinc-700 dark:text-zinc-300">
             <li>Your data is encrypted in transit and at rest by Apple</li>
             <li>Only you can access your data through your Apple ID</li>
             <li>We cannot access, read, or decrypt your iCloud data</li>
-            <li>Data syncing is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">Apple's Privacy Policy</a></li>
+            <li>Data syncing is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">Apple&apos;s Privacy Policy</a></li>
           </ul>
           <h3 className="font-semibold mb-2">Secure Storage</h3>
-          <p className="text-zinc-700 dark:text-zinc-300">Sensitive information (such as subscription status) is stored in the iOS Keychain, Apple's secure credential storage system.</p>
+          <p className="text-zinc-700 dark:text-zinc-300">Sensitive information (such as subscription status) is stored in the iOS Keychain, Apple&apos;s secure credential storage system.</p>
         </section>
 
         <section className="mb-8 pb-8 border-b border-zinc-200 dark:border-zinc-800">
@@ -78,14 +78,14 @@ export default function PrivacyPage() {
           <h3 className="font-semibold mb-2">How We Use Location</h3>
           <ul className="list-disc pl-5 mb-4 space-y-1 text-zinc-700 dark:text-zinc-300">
             <li>To send you habit reminders when you arrive at or leave specific locations</li>
-            <li>Location monitoring happens entirely on-device using Apple's geofencing APIs</li>
+            <li>Location monitoring happens entirely on-device using Apple&apos;s geofencing APIs</li>
             <li>Location data is not transmitted to any servers</li>
           </ul>
           <h3 className="font-semibold mb-2">Your Control</h3>
           <ul className="list-disc pl-5 space-y-1 text-zinc-700 dark:text-zinc-300">
             <li>Location access is optional and can be disabled at any time in iOS Settings</li>
             <li>You can remove location-based reminders from individual habits</li>
-            <li>We support "When In Use" and "Always" permissions based on your preference</li>
+            <li>We support &ldquo;When In Use&rdquo; and &ldquo;Always&rdquo; permissions based on your preference</li>
           </ul>
         </section>
 
@@ -116,19 +116,19 @@ export default function PrivacyPage() {
             <li><strong>StoreKit:</strong> For processing in-app purchases and subscriptions</li>
             <li><strong>Apple Push Notification Service:</strong> For habit reminders</li>
           </ul>
-          <p className="mb-4 text-zinc-700 dark:text-zinc-300">These services are provided by Apple and governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">Apple's Privacy Policy</a>.</p>
+          <p className="mb-4 text-zinc-700 dark:text-zinc-300">These services are provided by Apple and governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">Apple&apos;s Privacy Policy</a>.</p>
           <h3 className="font-semibold mb-2">No Third-Party Analytics</h3>
           <p className="text-zinc-700 dark:text-zinc-300">We do not use any third-party analytics, crash reporting, or advertising services.</p>
         </section>
 
         <section className="mb-8 pb-8 border-b border-zinc-200 dark:border-zinc-800">
-          <h2 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-3">Children's Privacy</h2>
+          <h2 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-3">Children&apos;s Privacy</h2>
           <p className="text-zinc-700 dark:text-zinc-300">Ritualist is not directed at children under 13. We do not knowingly collect personal information from children under 13. If you believe we have inadvertently collected such information, please contact us to have it removed.</p>
         </section>
 
         <section className="mb-8 pb-8 border-b border-zinc-200 dark:border-zinc-800">
           <h2 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-3">Changes to This Policy</h2>
-          <p className="text-zinc-700 dark:text-zinc-300">We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date.</p>
+          <p className="text-zinc-700 dark:text-zinc-300">We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the &ldquo;Last updated&rdquo; date.</p>
         </section>
 
         <section className="mb-12">

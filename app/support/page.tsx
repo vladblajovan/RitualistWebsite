@@ -25,7 +25,7 @@ export default function SupportPage() {
 
       <main className="mx-auto max-w-3xl px-6 py-12">
         <h1 className="text-3xl font-bold mb-2">Ritualist Support</h1>
-        <p className="text-zinc-500 dark:text-zinc-400 mb-10">We're here to help you build better habits and achieve your goals with Ritualist.</p>
+        <p className="text-zinc-500 dark:text-zinc-400 mb-10">We&apos;re here to help you build better habits and achieve your goals with Ritualist.</p>
 
         <section className="mb-8 pb-8 border-b border-zinc-200 dark:border-zinc-800">
           <h2 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-3">Contact Us</h2>
@@ -74,7 +74,7 @@ export default function SupportPage() {
 
             <div className="bg-zinc-50 dark:bg-zinc-900 border-l-4 border-blue-500 rounded-r-lg px-4 py-4">
               <h3 className="font-semibold text-blue-600 dark:text-blue-400 mb-1">How do I restore my purchases?</h3>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400">Go to Settings &gt; tap "Restore Purchases" to restore any previous subscriptions on your current device.</p>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">Go to Settings &gt; tap &ldquo;Restore Purchases&rdquo; to restore any previous subscriptions on your current device.</p>
             </div>
 
             <div className="bg-zinc-50 dark:bg-zinc-900 border-l-4 border-blue-500 rounded-r-lg px-4 py-4">
