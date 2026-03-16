@@ -187,7 +187,6 @@ const navLinkClass = "text-base font-medium text-zinc-600 transition-colors hove
 const linkClass = "text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white";
 
 export default function Home() {
-  const [state, setState] = useState({ tagline: '', mounted: false });
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isDark, setIsDark] = useState(() =>
     typeof document !== 'undefined' && document.documentElement.classList.contains('dark')
@@ -202,17 +201,39 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
+  const [taglineIndex, setTaglineIndex] = useState<number | null>(null);
+  const taglineIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const startTaglineInterval = () => {
+    if (taglineIntervalRef.current) clearInterval(taglineIntervalRef.current);
+    taglineIntervalRef.current = setInterval(() => {
+      setTaglineIndex((prev) => {
+        const next = (prev === null ? 0 : (prev + 1) % taglines.length);
+        localStorage.setItem('lastTaglineIndex', next.toString());
+        return next;
+      });
+    }, 60000);
+  };
+
+  const rotateTagline = () => {
+    setTaglineIndex((prev) => {
+      const next = (prev === null ? 0 : (prev + 1) % taglines.length);
+      localStorage.setItem('lastTaglineIndex', next.toString());
+      return next;
+    });
+    startTaglineInterval();
+  };
+
   useEffect(() => {
     const lastIndex = parseInt(localStorage.getItem('lastTaglineIndex') || '-1');
-    let newIndex;
+    let startIndex;
     do {
-      newIndex = Math.floor(Math.random() * taglines.length);
-    } while (newIndex === lastIndex && taglines.length > 1);
-    localStorage.setItem('lastTaglineIndex', newIndex.toString());
-    // Use requestAnimationFrame to avoid synchronous setState in effect
-    requestAnimationFrame(() => {
-      setState({ tagline: taglines[newIndex], mounted: true });
-    });
+      startIndex = Math.floor(Math.random() * taglines.length);
+    } while (startIndex === lastIndex && taglines.length > 1);
+    localStorage.setItem('lastTaglineIndex', startIndex.toString());
+    setTaglineIndex(startIndex);
+    startTaglineInterval();
+    return () => { if (taglineIntervalRef.current) clearInterval(taglineIntervalRef.current); };
   }, []);
 
   // Show sticky bar after scrolling past hero
@@ -397,14 +418,26 @@ export default function Home() {
         <span className="bg-gradient-to-r from-[#0A95C2] to-[#0556A6] bg-clip-text text-transparent">knows you</span>{' '}
         — understand your personality, spot patterns that hold you back, and build rituals that actually stick.
       </motion.p>
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-        className="mb-10 text-lg italic text-zinc-500 dark:text-zinc-400 md:text-xl"
+      <div
+        className="mb-10 h-8 md:h-9 overflow-hidden cursor-pointer select-none"
+        onClick={rotateTagline}
+        title="Click for next slogan"
       >
-        {state.mounted ? state.tagline : '\u00A0'}
-      </motion.p>
+        <AnimatePresence mode="wait">
+          {taglineIndex !== null && (
+            <motion.p
+              key={taglineIndex}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.7, ease: 'easeInOut' }}
+              className="text-lg italic text-zinc-500 dark:text-zinc-400 md:text-xl"
+            >
+              {taglines[taglineIndex]}
+            </motion.p>
+          )}
+        </AnimatePresence>
+      </div>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
