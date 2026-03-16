@@ -1157,19 +1157,19 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="relative col-span-2 rounded-2xl border-2 border-black bg-black p-4 md:col-span-1 md:p-6 md:scale-105 dark:border-white dark:bg-white"
+              className="relative col-span-2 rounded-2xl border-2 border-[#0A95C2] bg-gradient-to-br from-[#0A95C2] to-[#0556A6] p-4 md:col-span-1 md:p-6 md:scale-105"
             >
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gradient-to-r from-[#0A95C2] to-[#0556A6] px-3 py-0.5 text-xs font-medium text-white md:px-4 md:py-1">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-white px-3 py-0.5 text-xs font-medium text-[#0556A6] md:px-4 md:py-1">
                 Most Popular
               </div>
-              <h4 className="mb-2 text-base font-bold text-white md:mb-3 md:text-lg dark:text-black">Annual</h4>
+              <h4 className="mb-2 text-base font-bold text-white md:mb-3 md:text-lg">Annual</h4>
               <div className="mb-1">
-                <span className="text-2xl font-bold text-white md:text-4xl dark:text-black">$49.99</span>
-                <span className="text-xs text-zinc-400 md:text-base dark:text-zinc-600">/year</span>
+                <span className="text-2xl font-bold text-white md:text-4xl">$49.99</span>
+                <span className="text-xs text-blue-200 md:text-base">/year</span>
               </div>
-              <p className="mb-1 text-xs text-zinc-400 md:text-sm dark:text-zinc-600">Save 58% vs monthly</p>
-              <p className="mb-2 text-xs font-semibold text-amber-400 md:mb-3 md:text-sm">7-day free trial included</p>
-              <p className="text-xs text-zinc-300 md:text-sm dark:text-zinc-700">
+              <p className="mb-1 text-xs text-blue-200 md:text-sm">Save 58% vs monthly</p>
+              <p className="mb-2 text-xs font-semibold text-amber-300 md:mb-3 md:text-sm">7-day free trial included</p>
+              <p className="text-xs text-blue-100 md:text-sm">
                 Best value for committed users
               </p>
             </motion.div>
