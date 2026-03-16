@@ -267,12 +267,14 @@ export default function Home() {
               >
                 Why Ritualist
               </a>
+              {/* Testimonials section hidden
               <a
                 href="#testimonials"
                 className={navLinkClass}
               >
                 Testimonials
               </a>
+              */}
               <a
                 href="#faq"
                 className={navLinkClass}
@@ -340,6 +342,7 @@ export default function Home() {
                   >
                     Why Ritualist
                   </a>
+                  {/* Testimonials section hidden
                   <a
                     href="#testimonials"
                     onClick={() => setMobileMenuOpen(false)}
@@ -347,6 +350,7 @@ export default function Home() {
                   >
                     Testimonials
                   </a>
+                  */}
                   <a
                     href="#faq"
                     onClick={() => setMobileMenuOpen(false)}
@@ -408,32 +412,18 @@ export default function Home() {
         className="flex flex-col items-center gap-3 lg:items-start"
       >
         <div className="flex w-full flex-row gap-2 items-center justify-center sm:gap-3 lg:justify-start">
-          {/* App Store disabled */}
+          {/* App Store */}
           <a
-            href="#"
-            aria-disabled="true"
-            aria-label="App Store download - Coming soon"
-            className="flex items-center justify-center gap-2 rounded-full bg-zinc-300 px-4 py-2 text-sm font-medium text-zinc-600 opacity-70 cursor-not-allowed sm:px-7 sm:py-3 sm:gap-3 sm:text-lg dark:bg-zinc-700 dark:text-zinc-300"
+            href="https://apps.apple.com/app/id6755661147"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Download Ritualist on the App Store"
+            className="flex items-center justify-center gap-2 rounded-full bg-black px-4 py-2 text-sm font-medium text-white transition-all hover:scale-105 active:scale-[0.97] hover:bg-zinc-800 sm:px-7 sm:py-3 sm:gap-3 sm:text-lg dark:bg-white dark:text-black dark:hover:bg-zinc-200"
           >
             <FaApple className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true" />
             App Store
           </a>
-          {/* TestFlight */}
-          <a
-            href="https://testflight.apple.com/join/RVMZXfse"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Join Ritualist beta on TestFlight (opens in new tab)"
-            className="flex items-center justify-center gap-2 rounded-full border-2 border-black px-4 py-2 text-sm font-medium text-black transition-all hover:scale-105 active:scale-[0.97] hover:bg-black hover:text-white sm:px-7 sm:py-3 sm:gap-3 sm:text-lg dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black"
-          >
-            <MdRocketLaunch className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
-            <span>Join TestFlight</span>
-          </a>
-        </div>
-        {/* Social proof */}
-        <div className="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400">
-          <span className="text-amber-500">★★★★★</span>
-          <span>Loved by 5K+ beta testers</span>
+
         </div>
       </motion.div>
     </div>
@@ -865,7 +855,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats & Testimonials Section */}
+      {/* Stats & Testimonials Section Hidden
       <section id="testimonials" className="bg-zinc-50 px-6 py-20 dark:bg-zinc-950">
         <div className="mx-auto max-w-6xl">
           <motion.h2
@@ -877,7 +867,7 @@ export default function Home() {
             Trusted & loved by users worldwide
           </motion.h2>
 
-          {/* Stats */}
+          {/* Stats * /}
           <div id="stats" className="mb-20 grid gap-12 md:grid-cols-2">
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
@@ -903,7 +893,7 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* Testimonials */}
+          {/* Testimonials * /}
           <div className="grid gap-8 md:grid-cols-3">
             {[
               { quote: 'Finally, a habit tracker that actually understands me. The personality insights are mind-blowing!', name: 'Sarah M.', role: 'Product Designer', delay: 0.1 },
@@ -938,6 +928,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      */}
 
       {/* FAQ Section */}
       <section id="faq" className="border-y border-zinc-200 bg-white px-6 py-20 dark:border-zinc-800 dark:bg-zinc-900">
@@ -1152,7 +1143,7 @@ export default function Home() {
             >
               <h4 className="mb-2 text-base font-bold text-black md:mb-3 md:text-lg dark:text-white">Monthly</h4>
               <div className="mb-3 md:mb-4">
-                <span className="text-2xl font-bold text-black md:text-4xl dark:text-white">$9.99</span>
+                <span className="text-2xl font-bold text-black md:text-4xl dark:text-white">$8.99</span>
                 <span className="text-xs text-zinc-600 md:text-base dark:text-zinc-400">/month</span>
               </div>
               <p className="text-xs text-zinc-600 md:text-sm dark:text-zinc-400">
@@ -1274,6 +1265,7 @@ export default function Home() {
                     Features
                   </a>
                 </li>
+                {/* Stats section link hidden
                 <li>
                   <a
                     href="#stats"
@@ -1282,6 +1274,7 @@ export default function Home() {
                     Stats
                   </a>
                 </li>
+                */}
                 <li>
                   <a
                     href="#difference"
