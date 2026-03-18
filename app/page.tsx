@@ -1396,28 +1396,7 @@ export default function Home() {
           </div>
         </footer>
 
-        {/* Sticky Mobile CTA */}
-        <AnimatePresence>
-          {showStickyBar && (
-            <motion.div
-              initial={{ y: 100, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 100, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="fixed bottom-0 left-0 right-0 z-50 border-t border-zinc-200 bg-white/90 px-4 py-3 backdrop-blur-md md:hidden dark:border-zinc-700 dark:bg-zinc-900/90"
-            >
-              <a
-                href="https://testflight.apple.com/join/RVMZXfse"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex w-full items-center justify-center gap-2 rounded-full bg-black px-6 py-3 text-base font-semibold text-white transition-all active:scale-[0.97] dark:bg-white dark:text-black"
-              >
-                <MdRocketLaunch className="h-4 w-4" />
-                Join TestFlight Beta
-              </a>
-            </motion.div>
-          )}
-        </AnimatePresence>
+
       </div>
     </MotionConfig>
   );

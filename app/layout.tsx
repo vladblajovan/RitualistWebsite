@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = "https://ritualist.app"; // TODO: Replace with your actual domain
+const siteUrl = "https://vladblajovan.github.io/RitualistApp";
 
 export const metadata: Metadata = {
   title: "Ritualist - Build Better Habits",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     siteName: "Ritualist",
     images: [
       {
-        url: "/og-image.png", // TODO: Create this image (1200x630px)
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Ritualist - Build Better Habits",
@@ -56,8 +56,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Ritualist - Privacy-First Habit Tracker for iOS",
     description: "Build better habits with AI-powered personality insights, location-based reminders, and beautiful analytics.",
-    images: ["/twitter-card.png"], // TODO: Create this image (1200x600px)
-    creator: "@ritualistapp", // TODO: Replace with your Twitter handle
+    images: ["/og-image.png"],
+    creator: "@ritualistapp",
   },
   alternates: {
     canonical: siteUrl,
