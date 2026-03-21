@@ -316,6 +316,14 @@ export default function Home() {
                 >
                   Pricing
                 </a>
+                <a
+                  href="https://vladblajovan.github.io"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={navLinkClass}
+                >
+                  Meet me
+                </a>
                 <button
                   onClick={() => document.documentElement.classList.toggle('dark')}
                   aria-label="Toggle theme"
@@ -394,6 +402,15 @@ export default function Home() {
                     >
                       Pricing
                     </a>
+                    <a
+                      href="https://vladblajovan.github.io"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={navLinkClass}
+                    >
+                      Meet me
+                    </a>
                   </div>
                 </motion.div>
               )}
@@ -452,7 +469,8 @@ export default function Home() {
                   transition={{ duration: 0.5, delay: 0.5 }}
                   className="flex flex-col items-center gap-3 lg:items-start"
                 >
-                  <div className="flex w-full flex-row gap-2 items-center justify-center sm:gap-3 lg:justify-start">
+                  <div className="flex w-full flex-row gap-3 items-center justify-center sm:gap-4 lg:justify-start">
+                    <span className="text-sm font-medium text-zinc-600 sm:text-lg dark:text-zinc-400">Get it on</span>
                     {/* App Store */}
                     <a
                       href="https://apps.apple.com/app/id6755661147"
@@ -462,7 +480,7 @@ export default function Home() {
                       className="flex items-center justify-center gap-2 rounded-full bg-black px-4 py-2 text-sm font-medium text-white transition-all hover:scale-105 active:scale-[0.97] hover:bg-zinc-800 sm:px-7 sm:py-3 sm:gap-3 sm:text-lg dark:bg-white dark:text-black dark:hover:bg-zinc-200"
                     >
                       <FaApple className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true" />
-                      App Store
+                      AppStore
                     </a>
 
                   </div>
@@ -1379,7 +1397,7 @@ export default function Home() {
                       rel="noopener noreferrer"
                       className={linkClass}
                     >
-                      About the Developer
+                      Meet me
                     </a>
                   </li>
                 </ul>
