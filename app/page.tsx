@@ -1,7 +1,6 @@
 'use client';
 
 import { FaApple, FaInstagram } from 'react-icons/fa';
-import { MdRocketLaunch } from 'react-icons/md';
 import { HiMenu, HiX, HiChevronDown } from 'react-icons/hi';
 import { useState, useEffect, useRef } from 'react';
 import { motion, MotionConfig, AnimatePresence, useInView } from 'framer-motion';
@@ -470,7 +469,6 @@ export default function Home() {
                   className="flex flex-col items-center gap-3 lg:items-start"
                 >
                   <div className="flex w-full flex-row gap-3 items-center justify-center sm:gap-4 lg:justify-start">
-                    <span className="text-sm font-medium text-zinc-600 sm:text-lg dark:text-zinc-400">Get it on</span>
                     {/* App Store */}
                     <a
                       href="https://apps.apple.com/app/id6755661147"
@@ -480,7 +478,7 @@ export default function Home() {
                       className="flex items-center justify-center gap-2 rounded-full bg-black px-4 py-2 text-sm font-medium text-white transition-all hover:scale-105 active:scale-[0.97] hover:bg-zinc-800 sm:px-7 sm:py-3 sm:gap-3 sm:text-lg dark:bg-white dark:text-black dark:hover:bg-zinc-200"
                     >
                       <FaApple className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true" />
-                      AppStore
+                      Download on AppStore
                     </a>
 
                   </div>
@@ -1278,15 +1276,14 @@ export default function Home() {
                 transition={{ delay: 0.2 }}
               >
                 <a
-                  href="https://testflight.apple.com/join/RVMZXfse"
+                  href="https://apps.apple.com/app/id6755661147"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 rounded-full bg-white px-8 py-4 text-lg font-semibold text-black transition-all hover:scale-105 active:scale-[0.97] hover:bg-zinc-100"
                 >
-                  <MdRocketLaunch className="h-5 w-5" />
-                  Join the TestFlight Beta
+                  <FaApple className="h-5 w-5" />
+                  Download on AppStore
                 </a>
-                <p className="mt-4 text-sm text-zinc-500">Free to try. No credit card required.</p>
               </motion.div>
             </div>
           </section>
