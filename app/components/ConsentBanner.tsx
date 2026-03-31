@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { getConsent, setConsent } from '../lib/analytics';
+import { getConsent, setConsent, removeGACookies } from '../lib/analytics';
 
 export default function ConsentBanner({ onConsent }: { onConsent: (granted: boolean) => void }) {
   const [visible, setVisible] = useState(false);
@@ -23,6 +23,7 @@ export default function ConsentBanner({ onConsent }: { onConsent: (granted: bool
 
   function handleDecline() {
     setConsent('denied');
+    removeGACookies();
     setVisible(false);
     onConsent(false);
   }
