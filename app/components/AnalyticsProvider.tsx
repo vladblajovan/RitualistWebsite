@@ -23,13 +23,15 @@ export default function AnalyticsProvider() {
     if (!loadGA || !GA_ID || gaInitialized.current) return;
     gaInitialized.current = true;
 
-    // Initialize dataLayer and gtag function immediately
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function (...args: unknown[]) {
-      window.dataLayer!.push(args);
-    };
-    window.gtag('js', new Date());
-    window.gtag('config', GA_ID, { page_path: window.location.pathname });
+    // Inject Google's exact gtag snippet via inline script
+    const inline = document.createElement('script');
+    inline.textContent = `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '${GA_ID}');
+    `;
+    document.head.appendChild(inline);
 
     // Load the gtag.js script
     const script = document.createElement('script');
