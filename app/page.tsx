@@ -6,6 +6,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, MotionConfig, AnimatePresence, useInView } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { trackEvent, clearConsent } from './lib/analytics';
 
 
 const taglines = [
@@ -148,7 +149,7 @@ function FaqItem({ question, answer, index }: { question: string; answer: string
       className="border-b border-zinc-200 dark:border-zinc-700"
     >
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => { setIsOpen(!isOpen); if (!isOpen) trackEvent({ action: 'faq_expand', category: 'engagement', label: question }); }}
         className="flex w-full items-center justify-between py-5 text-left"
       >
         <h3 className="text-lg font-semibold text-black dark:text-white pr-4">
@@ -285,12 +286,14 @@ export default function Home() {
               <div className="hidden md:flex items-center gap-6">
                 <a
                   href="#features"
+                  onClick={() => trackEvent({ action: 'nav_click', category: 'navigation', label: 'features' })}
                   className={navLinkClass}
                 >
                   Features
                 </a>
                 <a
                   href="#difference"
+                  onClick={() => trackEvent({ action: 'nav_click', category: 'navigation', label: 'why_ritualist' })}
                   className={navLinkClass}
                 >
                   Why Ritualist
@@ -305,18 +308,21 @@ export default function Home() {
               */}
                 <a
                   href="#faq"
+                  onClick={() => trackEvent({ action: 'nav_click', category: 'navigation', label: 'faq' })}
                   className={navLinkClass}
                 >
                   FAQ
                 </a>
                 <a
                   href="#pricing"
+                  onClick={() => trackEvent({ action: 'nav_click', category: 'navigation', label: 'pricing' })}
                   className={navLinkClass}
                 >
                   Pricing
                 </a>
                 <Link
                   href="/roadmap"
+                  onClick={() => trackEvent({ action: 'nav_click', category: 'navigation', label: 'roadmap' })}
                   className={navLinkClass}
                 >
                   Roadmap
@@ -325,6 +331,7 @@ export default function Home() {
                   href="https://vladblajovan.github.io"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent({ action: 'outbound_click', category: 'engagement', label: 'meet_me' })}
                   className={navLinkClass}
                 >
                   Meet me
@@ -372,14 +379,14 @@ export default function Home() {
                   <div className="flex flex-col px-6 py-4 space-y-4">
                     <a
                       href="#features"
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={() => { setMobileMenuOpen(false); trackEvent({ action: 'nav_click', category: 'navigation', label: 'features' }); }}
                       className={navLinkClass}
                     >
                       Features
                     </a>
                     <a
                       href="#difference"
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={() => { setMobileMenuOpen(false); trackEvent({ action: 'nav_click', category: 'navigation', label: 'why_ritualist' }); }}
                       className={navLinkClass}
                     >
                       Why Ritualist
@@ -395,21 +402,21 @@ export default function Home() {
                   */}
                     <a
                       href="#faq"
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={() => { setMobileMenuOpen(false); trackEvent({ action: 'nav_click', category: 'navigation', label: 'faq' }); }}
                       className={navLinkClass}
                     >
                       FAQ
                     </a>
                     <a
                       href="#pricing"
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={() => { setMobileMenuOpen(false); trackEvent({ action: 'nav_click', category: 'navigation', label: 'pricing' }); }}
                       className={navLinkClass}
                     >
                       Pricing
                     </a>
                     <Link
                       href="/roadmap"
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={() => { setMobileMenuOpen(false); trackEvent({ action: 'nav_click', category: 'navigation', label: 'roadmap' }); }}
                       className={navLinkClass}
                     >
                       Roadmap
@@ -418,7 +425,7 @@ export default function Home() {
                       href="https://vladblajovan.github.io"
                       target="_blank"
                       rel="noopener noreferrer"
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={() => { setMobileMenuOpen(false); trackEvent({ action: 'outbound_click', category: 'engagement', label: 'meet_me' }); }}
                       className={navLinkClass}
                     >
                       Meet me
@@ -488,6 +495,7 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="Download Ritualist on the App Store"
+                      onClick={() => trackEvent({ action: 'app_store_click', category: 'conversion', label: 'hero' })}
                       className="flex items-center justify-center gap-2 rounded-full bg-black px-4 py-2 text-sm font-medium text-white transition-all hover:scale-105 active:scale-[0.97] hover:bg-zinc-800 sm:px-7 sm:py-3 sm:gap-3 sm:text-lg dark:bg-white dark:text-black dark:hover:bg-zinc-200"
                     >
                       <FaApple className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true" />
@@ -1292,6 +1300,7 @@ export default function Home() {
                   href="https://apps.apple.com/app/id6755661147"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent({ action: 'app_store_click', category: 'conversion', label: 'bottom_cta' })}
                   className="inline-flex items-center gap-3 rounded-full bg-white px-8 py-4 text-lg font-semibold text-black transition-all hover:scale-105 active:scale-[0.97] hover:bg-zinc-100"
                 >
                   <FaApple className="h-5 w-5" />
@@ -1317,6 +1326,7 @@ export default function Home() {
                     href="https://instagram.com/ritualist.app"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackEvent({ action: 'outbound_click', category: 'engagement', label: 'instagram' })}
                     className={linkClass}
                   >
                     <FaInstagram className="h-5 w-5" />
@@ -1375,6 +1385,7 @@ export default function Home() {
                       href="https://github.com/vladblajovan/Ritualist"
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => trackEvent({ action: 'outbound_click', category: 'engagement', label: 'github' })}
                       className={linkClass}
                     >
                       GitHub
@@ -1385,6 +1396,7 @@ export default function Home() {
                       href="https://github.com/vladblajovan/Ritualist/issues"
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => trackEvent({ action: 'outbound_click', category: 'engagement', label: 'github_issues' })}
                       className={linkClass}
                     >
                       Report Issues
@@ -1410,6 +1422,7 @@ export default function Home() {
                       href="https://vladblajovan.github.io"
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => trackEvent({ action: 'outbound_click', category: 'engagement', label: 'meet_me' })}
                       className={linkClass}
                     >
                       Meet me
@@ -1419,12 +1432,18 @@ export default function Home() {
               </div>
             </div>
             <div className="mt-12 border-t border-zinc-200 pt-8 dark:border-zinc-800 flex flex-col items-center gap-4">
-              <a href="https://www.buymeacoffee.com/vladblajovan" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.buymeacoffee.com/vladblajovan" target="_blank" rel="noopener noreferrer" onClick={() => trackEvent({ action: 'outbound_click', category: 'engagement', label: 'buymeacoffee' })}>
                 <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" className="h-10" />
               </a>
               <span className="text-sm text-zinc-600 dark:text-zinc-400">
                 © 2025–{new Date().getFullYear()} Ritualist. Built with ❤️ by <a href="https://vladblajovan.github.io" target="_blank" rel="noopener noreferrer" className="underline decoration-zinc-400 underline-offset-2 transition-colors hover:text-black dark:decoration-zinc-600 dark:hover:text-white">Vlad Blajovan</a>
               </span>
+              <button
+                onClick={() => { clearConsent(); window.location.reload(); }}
+                className="text-xs text-zinc-400 underline underline-offset-2 transition-colors hover:text-zinc-600 dark:hover:text-zinc-300"
+              >
+                Cookie Settings
+              </button>
             </div>
           </div>
         </footer>

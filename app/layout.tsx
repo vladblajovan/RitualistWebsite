@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
-
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+import AnalyticsProvider from "./components/AnalyticsProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -80,23 +78,6 @@ export default function RootLayout({
         <meta name="color-scheme" content="light dark" />
         <meta name="theme-color" content="#f9fafb" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
-        {/* Google Analytics – set NEXT_PUBLIC_GA_ID in GitHub Actions secret */}
-        {GA_ID && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-              strategy="afterInteractive"
-            />
-            <Script id="ga-init" strategy="afterInteractive" dangerouslySetInnerHTML={{
-              __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${GA_ID}', { page_path: window.location.pathname });
-              `
-            }} />
-          </>
-        )}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -123,6 +104,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <AnalyticsProvider />
       </body>
     </html>
   );

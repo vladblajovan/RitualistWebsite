@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { trackEvent } from '../lib/analytics';
 
 export default function SuggestFeatureForm() {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,6 +17,7 @@ export default function SuggestFeatureForm() {
       body += `\n\nDescription:\n${description.trim()}`;
     }
     const encodedBody = encodeURIComponent(body);
+    trackEvent({ action: 'feature_request_submit', category: 'engagement', label: title.trim() });
     window.location.href = `mailto:ritualist.help@gmail.com?subject=${subject}&body=${encodedBody}`;
   }
 
@@ -23,7 +25,7 @@ export default function SuggestFeatureForm() {
     <div className="mb-10 rounded-xl border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-900/20 overflow-hidden">
       {/* Collapsed header — always visible */}
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => { if (!isOpen) trackEvent({ action: 'feature_request_open', category: 'engagement' }); setIsOpen(!isOpen); }}
         className="w-full px-5 py-3 flex items-center gap-3 transition-colors hover:bg-blue-100 dark:hover:bg-blue-900/40"
       >
         <span className="text-2xl">💡</span>
