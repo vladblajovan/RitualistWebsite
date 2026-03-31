@@ -1403,17 +1403,17 @@ export default function Home() {
                     </a>
                   </li>
                   <li>
-                    <Link href="/support" className={linkClass}>
+                    <Link href="/support" onClick={() => trackEvent({ action: 'nav_click', category: 'navigation', label: 'support' })} className={linkClass}>
                       Support
                     </Link>
                   </li>
                   <li>
-                    <Link href="/privacy" className={linkClass}>
+                    <Link href="/privacy" onClick={() => trackEvent({ action: 'nav_click', category: 'navigation', label: 'privacy' })} className={linkClass}>
                       Privacy Policy
                     </Link>
                   </li>
                   <li>
-                    <Link href="/terms" className={linkClass}>
+                    <Link href="/terms" onClick={() => trackEvent({ action: 'nav_click', category: 'navigation', label: 'terms' })} className={linkClass}>
                       Terms of Service
                     </Link>
                   </li>
