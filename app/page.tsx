@@ -315,6 +315,12 @@ export default function Home() {
                 >
                   Pricing
                 </a>
+                <Link
+                  href="/roadmap"
+                  className={navLinkClass}
+                >
+                  Roadmap
+                </Link>
                 <a
                   href="https://vladblajovan.github.io"
                   target="_blank"
@@ -401,6 +407,13 @@ export default function Home() {
                     >
                       Pricing
                     </a>
+                    <Link
+                      href="/roadmap"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={navLinkClass}
+                    >
+                      Roadmap
+                    </Link>
                     <a
                       href="https://vladblajovan.github.io"
                       target="_blank"
@@ -1346,6 +1359,11 @@ export default function Home() {
                     >
                       Pricing
                     </a>
+                  </li>
+                  <li>
+                    <Link href="/roadmap" className={linkClass}>
+                      Roadmap
+                    </Link>
                   </li>
                 </ul>
               </div>

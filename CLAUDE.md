@@ -11,7 +11,9 @@ A modern landing page website for an app, inspired by winston.cafe. Built to sho
 - **Next.js 16** (React framework with App Router)
 - **React 19**
 - **TypeScript**
-- **Tailwind CSS v4** (utility-first styling)
+- **Tailwind CSS v3** (utility-first styling)
+- **Framer Motion** (animations)
+- **React Icons** (icon library)
 - **ESLint** (code quality)
 
 ## Development Commands
@@ -21,7 +23,7 @@ A modern landing page website for an app, inspired by winston.cafe. Built to sho
 npm run dev
 
 # Build for production
-npm build
+npm run build
 
 # Start production server
 npm start
@@ -38,6 +40,11 @@ This project uses Next.js **App Router** (not Pages Router):
   - `page.tsx` - Homepage component
   - `layout.tsx` - Root layout (wraps all pages)
   - `globals.css` - Global styles and Tailwind imports
+  - `components/` - Reusable React components
+  - `sitemap.ts` - Sitemap generation
+  - `privacy/` - Privacy policy page
+  - `support/` - Support page
+  - `terms/` - Terms of service page
 - `public/` - Static assets (images, videos, fonts)
 - `tailwind.config.ts` - Tailwind configuration
 - `next.config.ts` - Next.js configuration
@@ -54,6 +61,11 @@ This project uses Next.js **App Router** (not Pages Router):
 - Tailwind CSS for utility classes
 - Define custom colors/fonts in `tailwind.config.ts`
 - Global styles in `app/globals.css`
+
+**Deployment:**
+- Static export (`output: 'export'` in next.config.ts)
+- Hosted on GitHub Pages with base path `/RitualistApp`
+- Custom image loader (`imageLoader.ts`) for static export compatibility
 
 **Inspiration Reference:**
 - Target aesthetic: winston.cafe
