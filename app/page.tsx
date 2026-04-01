@@ -336,21 +336,6 @@ export default function Home() {
                 >
                   Meet me
                 </a>
-                <button
-                  onClick={() => document.documentElement.classList.toggle('dark')}
-                  aria-label="Toggle theme"
-                  className="flex items-center justify-center rounded-full border border-zinc-300 p-1.5 text-zinc-600 transition hover:border-zinc-400 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-400 dark:hover:border-zinc-500 dark:hover:text-white"
-                >
-                  {isDark ? (
-                    <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
-                    </svg>
-                  ) : (
-                    <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
-                    </svg>
-                  )}
-                </button>
               </div>
 
               {/* Mobile Hamburger */}
@@ -1436,14 +1421,31 @@ export default function Home() {
                 <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" className="h-10" />
               </a>
               <span className="text-sm text-zinc-600 dark:text-zinc-400">
-                © 2025–{new Date().getFullYear()} Ritualist. Built with ❤️ by <a href="https://vladblajovan.github.io" target="_blank" rel="noopener noreferrer" className="underline decoration-zinc-400 underline-offset-2 transition-colors hover:text-black dark:decoration-zinc-600 dark:hover:text-white">Vlad Blajovan</a>
+                © 2025–{new Date().getFullYear()} Ritualist.
               </span>
-              <button
-                onClick={() => { clearConsent(); window.location.reload(); }}
-                className="text-xs text-zinc-400 underline underline-offset-2 transition-colors hover:text-zinc-600 dark:hover:text-zinc-300"
-              >
-                Cookie Settings
-              </button>
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={() => { clearConsent(); window.location.reload(); }}
+                  className="text-xs text-zinc-400 underline underline-offset-2 transition-colors hover:text-zinc-600 dark:hover:text-zinc-300"
+                >
+                  Cookie Settings
+                </button>
+                <button
+                  onClick={() => document.documentElement.classList.toggle('dark')}
+                  aria-label="Toggle theme"
+                  className="flex items-center justify-center rounded-full border border-zinc-300 p-1.5 text-zinc-400 transition hover:border-zinc-400 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-400 dark:hover:border-zinc-500 dark:hover:text-white"
+                >
+                  {isDark ? (
+                    <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+                    </svg>
+                  ) : (
+                    <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+                    </svg>
+                  )}
+                </button>
+              </div>
             </div>
           </div>
         </footer>
