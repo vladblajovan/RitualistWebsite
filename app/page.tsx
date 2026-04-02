@@ -161,8 +161,7 @@ function AnimatedCounter({ target, suffix = '' }: { target: number; suffix?: str
 }
 
 // FAQ Accordion item
-function FaqItem({ question, answer, index }: { question: string; answer: string; index: number }) {
-  const [isOpen, setIsOpen] = useState(false);
+function FaqItem({ question, answer, index, isOpen, onToggle }: { question: string; answer: string; index: number; isOpen: boolean; onToggle: () => void }) {
 
   return (
     <motion.div
@@ -173,7 +172,7 @@ function FaqItem({ question, answer, index }: { question: string; answer: string
       className="border-b border-zinc-200 dark:border-zinc-700"
     >
       <button
-        onClick={() => { setIsOpen(!isOpen); if (!isOpen) trackEvent({ action: 'faq_expand', category: 'engagement', label: question }); }}
+        onClick={() => { onToggle(); if (!isOpen) trackEvent({ action: 'faq_expand', category: 'engagement', label: question }); }}
         className="flex w-full items-center justify-between py-5 text-left"
       >
         <h3 className="text-lg font-semibold text-black dark:text-white pr-4">
@@ -216,6 +215,7 @@ export default function Home() {
     typeof document !== 'undefined' && document.documentElement.classList.contains('dark')
   );
   const [showStickyBar, setShowStickyBar] = useState(false);
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
   useEffect(() => {
     const observer = new MutationObserver(() => {
@@ -1058,52 +1058,72 @@ export default function Home() {
               </motion.h2>
               <div>
                 <FaqItem
+                  isOpen={openFaqIndex === 0}
                   index={0}
+                  onToggle={() => setOpenFaqIndex(openFaqIndex === 0 ? null : 0)}
                   question="Is Ritualist free to use?"
                   answer="Ritualist offers a free version with core features. Premium features like advanced analytics and unlimited habits are available through a subscription."
                 />
                 <FaqItem
+                  isOpen={openFaqIndex === 1}
                   index={1}
+                  onToggle={() => setOpenFaqIndex(openFaqIndex === 1 ? null : 1)}
                   question="Which devices are supported?"
                   answer="Ritualist is available for iPhone and iPad. Your data syncs seamlessly across your devices via iCloud."
                 />
                 <FaqItem
+                  isOpen={openFaqIndex === 2}
                   index={2}
+                  onToggle={() => setOpenFaqIndex(openFaqIndex === 2 ? null : 2)}
                   question="How does the personality analysis work?"
                   answer="Our on-device ML model analyzes your habit patterns to generate insights about your Big Five personality traits. All processing happens locally on your device for complete privacy."
                 />
                 <FaqItem
+                  isOpen={openFaqIndex === 3}
                   index={3}
+                  onToggle={() => setOpenFaqIndex(openFaqIndex === 3 ? null : 3)}
                   question="Is my data private?"
                   answer="Yes. Your habit data stays on your device and in your personal iCloud account. Personality insights are processed entirely on-device. We never have access to your information."
                 />
                 <FaqItem
+                  isOpen={openFaqIndex === 4}
                   index={4}
+                  onToggle={() => setOpenFaqIndex(openFaqIndex === 4 ? null : 4)}
                   question="Can I export my data?"
                   answer="Yes! You can export all your habit data, analytics, and insights at any time in standard formats like CSV and JSON."
                 />
                 <FaqItem
+                  isOpen={openFaqIndex === 5}
                   index={5}
+                  onToggle={() => setOpenFaqIndex(openFaqIndex === 5 ? null : 5)}
                   question="How do I restore my purchases?"
                   answer='Go to Settings > tap "Restore Purchases" to restore any previous subscriptions on your current device.'
                 />
                 <FaqItem
+                  isOpen={openFaqIndex === 6}
                   index={6}
+                  onToggle={() => setOpenFaqIndex(openFaqIndex === 6 ? null : 6)}
                   question="How do I cancel my subscription?"
                   answer="Subscriptions are managed through your Apple ID. Go to Settings > Apple ID > Subscriptions to manage or cancel."
                 />
                 <FaqItem
+                  isOpen={openFaqIndex === 7}
                   index={7}
+                  onToggle={() => setOpenFaqIndex(openFaqIndex === 7 ? null : 7)}
                   question="Does Ritualist work with Apple Health?"
                   answer="Yes! Ritualist can read and write health data like mindful minutes, steps, and water intake. Health integration is optional and your health data never leaves your device."
                 />
                 <FaqItem
+                  isOpen={openFaqIndex === 8}
                   index={8}
+                  onToggle={() => setOpenFaqIndex(openFaqIndex === 8 ? null : 8)}
                   question="What are timed habits?"
                   answer="Timed habits let you track fasting and breathing exercises. Choose from built-in protocols like 16:8 fasting or box breathing, or create your own. Track mood, view session history, and monitor progress."
                 />
                 <FaqItem
+                  isOpen={openFaqIndex === 9}
                   index={9}
+                  onToggle={() => setOpenFaqIndex(openFaqIndex === 9 ? null : 9)}
                   question="Which languages does Ritualist support?"
                   answer="Ritualist is available in English, German, Spanish, French, and Romanian."
                 />
