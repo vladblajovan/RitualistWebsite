@@ -25,7 +25,7 @@ export default function TermsPage() {
 
       <main className="mx-auto max-w-3xl px-6 py-12">
         <h1 className="text-3xl font-bold mb-1">Terms of Service</h1>
-        <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-10">Last updated: January 24, 2026</p>
+        <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-10">Last updated: April 2, 2026</p>
 
         <section className="mb-8 pb-8 border-b border-zinc-200 dark:border-zinc-800">
           <h2 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-3">1. Acceptance of Terms</h2>
@@ -36,9 +36,12 @@ export default function TermsPage() {
           <h2 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-3">2. Description of Service</h2>
           <p className="mb-3 text-zinc-700 dark:text-zinc-300">Ritualist is a habit tracking application that helps you build and maintain positive habits. The App allows you to:</p>
           <ul className="list-disc pl-5 space-y-1 text-zinc-700 dark:text-zinc-300">
-            <li>Create and track daily habits</li>
-            <li>Set reminders and notifications</li>
-            <li>View progress and statistics</li>
+            <li>Create and track daily habits (binary, numeric, and timed)</li>
+            <li>Track timed activities including fasting and breathing exercises</li>
+            <li>Set reminders and location-based notifications</li>
+            <li>Integrate with Apple Health to read and write health data</li>
+            <li>View progress, statistics, and personality insights</li>
+            <li>Share achievement cards (streaks, perfect days, weekly recaps)</li>
             <li>Sync data across your Apple devices via iCloud</li>
           </ul>
         </section>
@@ -131,6 +134,15 @@ export default function TermsPage() {
             <li>The results are algorithmic estimations and may not accurately reflect your complete personality</li>
             <li>If you have concerns about your mental health or well-being, please consult a qualified healthcare provider or mental health professional</li>
             <li>This feature is <strong>not a substitute for professional psychological evaluation or treatment</strong></li>
+          </ul>
+          <h3 className="font-semibold mb-2 mt-4">9.2 Fasting and Breathing Features</h3>
+          <p className="mb-2 text-zinc-700 dark:text-zinc-300">Ritualist includes timed habit features for intermittent fasting and guided breathing exercises. Please note:</p>
+          <ul className="list-disc pl-5 space-y-1 text-zinc-700 dark:text-zinc-300">
+            <li>These features are <strong>for general wellness and habit tracking purposes only</strong></li>
+            <li>They are <strong>not medical devices</strong> and do not provide medical advice, diagnosis, or treatment</li>
+            <li>Fasting may not be appropriate for everyone, including individuals with eating disorders, diabetes, or other health conditions</li>
+            <li>Consult a qualified healthcare provider before starting any fasting regimen or if you experience discomfort during breathing exercises</li>
+            <li>These features are <strong>not a substitute for professional medical guidance</strong></li>
           </ul>
         </section>
 

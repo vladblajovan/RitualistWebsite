@@ -25,7 +25,7 @@ export default function PrivacyPage() {
 
       <main className="mx-auto max-w-3xl px-6 py-12">
         <h1 className="text-3xl font-bold mb-1">Privacy Policy</h1>
-        <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-10">Last updated: December 22, 2025</p>
+        <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-10">Last updated: April 2, 2026</p>
 
         <section className="mb-8 pb-8 border-b border-zinc-200 dark:border-zinc-800">
           <h2 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-3">Introduction</h2>
@@ -46,12 +46,12 @@ export default function PrivacyPage() {
           <h3 className="font-semibold mb-2">Data Collected Automatically</h3>
           <ul className="list-disc pl-5 mb-4 space-y-1 text-zinc-700 dark:text-zinc-300">
             <li><strong>Location Data:</strong> Only when you enable location-based reminders for specific habits. We use geofencing to trigger reminders when you arrive at or leave designated locations.</li>
+            <li><strong>Anonymous Usage Data:</strong> We collect anonymous product interaction data (such as which screens are visited and which features are used) to understand how the app is used and improve the experience. This data is not linked to your identity. See the &ldquo;Analytics&rdquo; section below for details.</li>
           </ul>
           <h3 className="font-semibold mb-2">Data We Do NOT Collect</h3>
           <ul className="list-disc pl-5 space-y-1 text-zinc-700 dark:text-zinc-300">
-            <li>We do not collect analytics or usage data</li>
-            <li>We do not use third-party tracking or advertising SDKs</li>
-            <li>We do not collect device identifiers for tracking purposes</li>
+            <li>We do not use advertising or cross-app tracking SDKs</li>
+            <li>We do not collect device identifiers for tracking or advertising purposes</li>
             <li>We do not sell or share your data with third parties</li>
           </ul>
         </section>
@@ -117,8 +117,38 @@ export default function PrivacyPage() {
             <li><strong>Apple Push Notification Service:</strong> For habit reminders</li>
           </ul>
           <p className="mb-4 text-zinc-700 dark:text-zinc-300">These services are provided by Apple and governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">Apple&apos;s Privacy Policy</a>.</p>
-          <h3 className="font-semibold mb-2">No Third-Party Analytics</h3>
-          <p className="text-zinc-700 dark:text-zinc-300">We do not use any third-party analytics, crash reporting, or advertising services.</p>
+          <h3 className="font-semibold mb-2">Analytics (PostHog)</h3>
+          <p className="mb-2 text-zinc-700 dark:text-zinc-300">We use <a href="https://posthog.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">PostHog</a>, an open-source product analytics platform hosted in the EU, to understand how features are used and improve the app. This includes:</p>
+          <ul className="list-disc pl-5 mb-3 space-y-1 text-zinc-700 dark:text-zinc-300">
+            <li>Feature interactions (e.g., which screens are visited, which actions are taken)</li>
+            <li>An anonymous device identifier (not linked to your identity)</li>
+          </ul>
+          <p className="mb-2 text-zinc-700 dark:text-zinc-300">Analytics data is:</p>
+          <ul className="list-disc pl-5 mb-3 space-y-1 text-zinc-700 dark:text-zinc-300">
+            <li>Not linked to your personal identity</li>
+            <li>Not used for advertising or cross-app tracking</li>
+            <li>Not shared with third parties for marketing</li>
+            <li>Processed and stored in the European Union</li>
+          </ul>
+          <p className="text-zinc-700 dark:text-zinc-300">We do not use any advertising networks, data brokers, or crash reporting services.</p>
+        </section>
+
+        <section className="mb-8 pb-8 border-b border-zinc-200 dark:border-zinc-800">
+          <h2 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-3">Apple Health (HealthKit)</h2>
+          <p className="mb-3 text-zinc-700 dark:text-zinc-300">Ritualist can optionally integrate with Apple Health to read and write health data related to your habits (e.g., Mindful Minutes for breathing exercises, step counts, water intake).</p>
+          <h3 className="font-semibold mb-2">How We Use Health Data</h3>
+          <ul className="list-disc pl-5 mb-3 space-y-1 text-zinc-700 dark:text-zinc-300">
+            <li>Health data is used solely to display progress and auto-complete habits based on your activity</li>
+            <li>Health data stays on your device and in your personal iCloud account</li>
+            <li>Health data is <strong>never</strong> sent to our servers, analytics services, or any third party</li>
+            <li>Health data is <strong>never</strong> used for advertising or marketing purposes</li>
+          </ul>
+          <h3 className="font-semibold mb-2">Your Control</h3>
+          <ul className="list-disc pl-5 space-y-1 text-zinc-700 dark:text-zinc-300">
+            <li>Health integration is optional and disabled by default</li>
+            <li>You choose which habits sync with Apple Health</li>
+            <li>You can revoke Health permissions at any time in iOS Settings &gt; Health &gt; Ritualist</li>
+          </ul>
         </section>
 
         <section className="mb-8 pb-8 border-b border-zinc-200 dark:border-zinc-800">
