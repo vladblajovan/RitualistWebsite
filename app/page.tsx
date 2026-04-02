@@ -703,16 +703,16 @@ export default function Home() {
                     className="md:order-1 md:text-right"
                   >
                     <h3 className="mb-2 flex items-center gap-2 text-xl font-semibold text-black dark:text-white md:mb-4 md:gap-3 md:text-3xl md:flex-row-reverse md:justify-start">
-                      <span className="text-2xl md:text-4xl">📊</span>
-                      Beautiful Analytics
+                      <span className="text-2xl md:text-4xl">💡</span>
+                      Inspiring Insights
                     </h3>
                     <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 md:text-lg">
-                      See your progress come to life. Track your streaks, completion rates, and trends with stunning visualizations. The analytics dashboard makes it easy to understand your habits at a glance.
+                      See your progress come to life. Track your streaks, spot patterns, and get personalized motivational messages that adapt to your journey. Insights that inspire you to keep going.
                     </p>
                     <ul className="mt-3 space-y-1 text-xs text-zinc-500 dark:text-zinc-400 md:mt-6 md:space-y-2 md:text-base">
-                      <li className="flex items-center gap-2"><span className="text-[#0A95C2]">✓</span> Current and best streak tracking</li>
-                      <li className="flex items-center gap-2"><span className="text-[#0A95C2]">✓</span> Completion rate analytics</li>
-                      <li className="flex items-center gap-2"><span className="text-[#0A95C2]">✓</span> Weekly and monthly trends</li>
+                      <li className="flex items-center gap-2"><span className="text-[#0A95C2]">✓</span> Streak tracking and completion trends</li>
+                      <li className="flex items-center gap-2"><span className="text-[#0A95C2]">✓</span> Personalized motivation cards</li>
+                      <li className="flex items-center gap-2"><span className="text-[#0A95C2]">✓</span> Weekly recaps and pattern detection</li>
                     </ul>
                   </motion.div>
                   <motion.div
@@ -793,15 +793,15 @@ export default function Home() {
                   >
                     <h3 className="mb-2 flex items-center gap-2 text-xl font-semibold text-black dark:text-white md:mb-4 md:gap-3 md:text-3xl md:flex-row-reverse md:justify-start">
                       <span className="text-2xl md:text-4xl">📍</span>
-                      Smart Location Triggers
+                      Smart Triggers
                     </h3>
                     <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 md:text-lg">
-                      Never miss a habit again. Ritualist uses intelligent geofencing to remind you at the right place and time. Hit the gym? Log your workout. Arrive home? Time for evening meditation.
+                      Never miss a habit again. Location-based reminders trigger when you arrive at the gym or get home. Timed sessions track your fasting and breathing with live progress on your Lock Screen.
                     </p>
                     <ul className="mt-3 space-y-1 text-xs text-zinc-500 dark:text-zinc-400 md:mt-6 md:space-y-2 md:text-base">
-                      <li className="flex items-center gap-2"><span className="text-[#0A95C2]">✓</span> Custom locations for each habit</li>
-                      <li className="flex items-center gap-2"><span className="text-[#0A95C2]">✓</span> Smart notifications at the right moment</li>
-                      <li className="flex items-center gap-2"><span className="text-[#0A95C2]">✓</span> No annoying time-based reminders</li>
+                      <li className="flex items-center gap-2"><span className="text-[#0A95C2]">✓</span> Location-based geofencing reminders</li>
+                      <li className="flex items-center gap-2"><span className="text-[#0A95C2]">✓</span> Live Activities on your Lock Screen</li>
+                      <li className="flex items-center gap-2"><span className="text-[#0A95C2]">✓</span> Smart timers for fasting and breathing</li>
                     </ul>
                   </motion.div>
                   <motion.div
