@@ -73,7 +73,7 @@ const faqLd = {
       acceptedAnswer: {
         '@type': 'Answer',
         text:
-          'Yes. Everything runs on your device and your data is stored in your personal iCloud account. We never collect, track, or have access to your information.',
+          'Yes. Your habit data stays on your device and in your personal iCloud account. Personality insights are processed entirely on-device. We never have access to your information.',
       },
     },
     {
@@ -99,6 +99,30 @@ const faqLd = {
       acceptedAnswer: {
         '@type': 'Answer',
         text: 'Subscriptions are managed through your Apple ID. Go to Settings > Apple ID > Subscriptions to manage or cancel.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does Ritualist work with Apple Health?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes! Ritualist can read and write health data like mindful minutes, steps, and water intake. Health integration is optional and your health data never leaves your device.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What are timed habits?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Timed habits let you track fasting and breathing exercises. Choose from built-in protocols like 16:8 fasting or box breathing, or create your own.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Which languages does Ritualist support?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Ritualist is available in English, German, Spanish, French, and Romanian.',
       },
     },
   ],
@@ -1060,7 +1084,7 @@ export default function Home() {
                 <FaqItem
                   index={3}
                   question="Is my data private?"
-                  answer="Absolutely. Everything runs on your device and your data is stored in your personal iCloud account. We never collect, track, or have access to your information."
+                  answer="Yes. Your habit data stays on your device and in your personal iCloud account. Personality insights are processed entirely on-device. We never have access to your information."
                 />
                 <FaqItem
                   index={4}
@@ -1076,6 +1100,21 @@ export default function Home() {
                   index={6}
                   question="How do I cancel my subscription?"
                   answer="Subscriptions are managed through your Apple ID. Go to Settings > Apple ID > Subscriptions to manage or cancel."
+                />
+                <FaqItem
+                  index={7}
+                  question="Does Ritualist work with Apple Health?"
+                  answer="Yes! Ritualist can read and write health data like mindful minutes, steps, and water intake. Health integration is optional and your health data never leaves your device."
+                />
+                <FaqItem
+                  index={8}
+                  question="What are timed habits?"
+                  answer="Timed habits let you track fasting and breathing exercises. Choose from built-in protocols like 16:8 fasting or box breathing, or create your own. Track mood, view session history, and monitor progress."
+                />
+                <FaqItem
+                  index={9}
+                  question="Which languages does Ritualist support?"
+                  answer="Ritualist is available in English, German, Spanish, French, and Romanian."
                 />
               </div>
             </div>
@@ -1157,6 +1196,10 @@ export default function Home() {
                       <span>✗</span>
                       <span>Advanced analytics</span>
                     </li>
+                    <li className="flex items-start gap-3 text-zinc-400 dark:text-zinc-500">
+                      <span>✗</span>
+                      <span>Apple Health integration</span>
+                    </li>
                   </ul>
                 </motion.div>
 
@@ -1199,6 +1242,14 @@ export default function Home() {
                     <li className="flex items-start gap-3 text-zinc-700 dark:text-zinc-300">
                       <span className="text-green-500">✓</span>
                       <span>Export data (CSV, JSON)</span>
+                    </li>
+                    <li className="flex items-start gap-3 text-zinc-700 dark:text-zinc-300">
+                      <span className="text-green-500">✓</span>
+                      <span>Apple Health integration</span>
+                    </li>
+                    <li className="flex items-start gap-3 text-zinc-700 dark:text-zinc-300">
+                      <span className="text-green-500">✓</span>
+                      <span>Shareable snapshot cards</span>
                     </li>
                   </ul>
                 </motion.div>
