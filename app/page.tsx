@@ -917,6 +917,44 @@ export default function Home() {
             </div>
           </section>
 
+          {/* More Features Grid */}
+          <section className="border-t border-zinc-200 bg-zinc-50 px-6 py-16 dark:border-zinc-800 dark:bg-zinc-950">
+            <div className="mx-auto max-w-5xl">
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="mb-12 text-center text-3xl font-bold text-black dark:text-white md:text-4xl"
+              >
+                And so much more
+              </motion.h2>
+              <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 md:gap-6">
+                {[
+                  { icon: '☁️', title: 'iCloud Sync', desc: 'Seamless sync across all your Apple devices' },
+                  { icon: '🎨', title: 'Customization', desc: 'Custom colors, emojis, and flexible categories' },
+                  { icon: '🏆', title: 'Shareable Cards', desc: 'Share streak milestones, perfect days, and weekly recaps' },
+                  { icon: '📱', title: 'Widgets', desc: 'Track habits from your Home Screen' },
+                  { icon: '🔴', title: 'Live Activities', desc: 'Real-time progress on your Lock Screen' },
+                  { icon: '✨', title: 'Inspiration', desc: 'Personalized messages that adapt to your progress' },
+                  { icon: '🌍', title: '5 Languages', desc: 'English, German, Spanish, French, and Romanian' },
+                ].map((item, i) => (
+                  <motion.div
+                    key={item.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: Math.min(i * 0.05, 0.3) }}
+                    className="rounded-xl border border-zinc-200 bg-white p-4 dark:border-zinc-700 dark:bg-zinc-800"
+                  >
+                    <div className="mb-2 text-2xl">{item.icon}</div>
+                    <h3 className="mb-1 text-sm font-semibold text-black dark:text-white">{item.title}</h3>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400">{item.desc}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+
           {/* Stats & Testimonials Section Hidden
       <section id="testimonials" className="bg-zinc-50 px-6 py-20 dark:bg-zinc-950">
         <div className="mx-auto max-w-6xl">
