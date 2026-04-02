@@ -125,6 +125,14 @@ const faqLd = {
         text: 'Ritualist is available in English, German, Spanish, French, and Romanian.',
       },
     },
+    {
+      '@type': 'Question',
+      name: 'Can I share my achievements?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes! Ritualist generates shareable snapshot cards for streak milestones, perfect days, and weekly recaps.',
+      },
+    },
   ],
 };
 
@@ -1126,6 +1134,13 @@ export default function Home() {
                   onToggle={() => setOpenFaqIndex(openFaqIndex === 9 ? null : 9)}
                   question="Which languages does Ritualist support?"
                   answer="Ritualist is available in English, German, Spanish, French, and Romanian."
+                />
+                <FaqItem
+                  isOpen={openFaqIndex === 10}
+                  index={10}
+                  onToggle={() => setOpenFaqIndex(openFaqIndex === 10 ? null : 10)}
+                  question="Can I share my achievements?"
+                  answer="Yes! Ritualist generates shareable snapshot cards for streak milestones, perfect days, and weekly recaps. Share them directly from the app to celebrate your progress."
                 />
               </div>
             </div>
