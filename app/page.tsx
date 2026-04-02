@@ -445,7 +445,7 @@ export default function Home() {
                 >
                   The privacy-first iOS habit tracker that{' '}
                   <span className="bg-gradient-to-r from-[#0A95C2] to-[#0556A6] bg-clip-text text-transparent">knows you</span>{' '}
-                  — understand your personality, spot patterns that hold you back, and build rituals that actually stick.
+                  — understand your personality, connect with Apple Health, and build rituals that actually stick.
                 </motion.p>
                 <div
                   className="mb-10 h-8 md:h-9 overflow-hidden cursor-pointer select-none"
@@ -549,7 +549,7 @@ export default function Home() {
                     Intelligence that adapts to you
                   </h3>
                   <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                    On-device machine learning reveals your personality patterns and behavior insights, helping you choose habits that match who you are—rather than fighting against your nature.
+                    On-device machine learning reveals your personality patterns, connects with Apple Health, and delivers insights that help you choose habits matching who you are—rather than fighting against your nature.
                   </p>
                 </motion.div>
 
@@ -567,7 +567,7 @@ export default function Home() {
                     Built for lasting transformation
                   </h3>
                   <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                    Designed around streaks, rituals, and identity-level change. Every feature helps you build sustainable habits that become part of who you are—not temporary to-do lists.
+                    Designed around streaks, fasting protocols, breathing exercises, and identity-level change. Every feature helps you build sustainable habits that become part of who you are—not temporary to-do lists.
                   </p>
                 </motion.div>
 
@@ -585,7 +585,7 @@ export default function Home() {
                     Deeply personal, completely private
                   </h3>
                   <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                    Your journey is yours alone. Everything runs on-device with zero data collection, so you can focus on genuine growth—without the pressure of social validation.
+                    Your journey is yours alone. Your habit data stays on your device and in your personal iCloud account, so you can focus on genuine growth—without the pressure of social validation.
                   </p>
                 </motion.div>
               </div>
@@ -616,7 +616,7 @@ export default function Home() {
               <div className="mt-12 grid gap-8 md:grid-cols-3 md:items-start">
                 {[
                   { step: '01', icon: '✨', title: 'Open & go', desc: 'Download the app, tap to create your first habit. Pick an emoji, choose a color, done. No account required.' },
-                  { step: '02', icon: '👆', title: 'One tap to track', desc: 'Finished your workout? Just tap the checkmark. Ritualist automatically logs the time, builds your streak, and updates your analytics.' },
+                  { step: '02', icon: '👆', title: 'One tap to track', desc: 'Tap a checkmark, start a fasting timer, or begin a breathing session. Ritualist logs everything, builds your streak, and updates your insights.' },
                   { step: '03', icon: '🚀', title: 'Watch yourself grow', desc: 'See your streaks climb, your patterns emerge, and your personality insights unlock. Build rituals that stick—effortlessly.' },
                 ].map((item, i) => (
                   <motion.div
@@ -1374,17 +1374,6 @@ export default function Home() {
                       className={linkClass}
                     >
                       GitHub
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://github.com/vladblajovan/Ritualist/issues"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => trackEvent({ action: 'outbound_click', category: 'engagement', label: 'github_issues' })}
-                      className={linkClass}
-                    >
-                      Report Issues
                     </a>
                   </li>
                   <li>
