@@ -558,7 +558,7 @@ export default function Home() {
               >
                 What if your habits could understand you better than you understand yourself? Ritualist reveals the patterns you&apos;ve never noticed and builds rituals that work with your nature—not against it.
               </motion.p>
-              <div className="mt-10 grid gap-6 md:grid-cols-3 md:items-start">
+              <div className="mt-10 grid gap-6 md:grid-cols-3 md:items-stretch">
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
