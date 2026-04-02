@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import SuggestFeatureForm from './SuggestFeatureForm';
 
 export const metadata: Metadata = {
-  title: 'Roadmap - Ritualist',
+  title: "What's Next - Ritualist",
   description: 'See what features are coming next to Ritualist and vote for your favorites in the app.',
 };
 
@@ -72,7 +72,7 @@ export default async function RoadmapPage() {
       </nav>
 
       <main className="mx-auto max-w-3xl px-6 py-12">
-        <h1 className="text-3xl font-bold mb-2">Roadmap</h1>
+        <h1 className="text-3xl font-bold mb-2">What&apos;s Next</h1>
         <p className="text-zinc-500 dark:text-zinc-400 mb-4">
           Here&apos;s what we&apos;re working on and what&apos;s coming next.
         </p>
@@ -83,7 +83,7 @@ export default async function RoadmapPage() {
           <span className="text-2xl">🗳️</span>
           <p className="text-sm text-blue-700 dark:text-blue-300">
             Want to vote on features? Open <strong>Ritualist</strong> on your iPhone and go to{' '}
-            <strong>Settings &rarr; Roadmap</strong> to cast your votes.
+            <strong>Settings &rarr; What&apos;s Next</strong> to cast your votes.
           </p>
         </div>
 
