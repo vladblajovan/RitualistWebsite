@@ -54,7 +54,7 @@ export default function SupportPage() {
 
             <div className="bg-zinc-50 dark:bg-zinc-900 border-l-4 border-blue-500 rounded-r-lg px-4 py-4">
               <h3 className="font-semibold text-blue-600 dark:text-blue-400 mb-1">Is my data private?</h3>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400">Absolutely. Everything runs on your device and your data is stored in your personal iCloud account. We never collect, track, or have access to your information.</p>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">Yes. Your habit data stays on your device and in your personal iCloud account. Personality insights are processed entirely on-device. We never have access to your information.</p>
             </div>
 
             <div className="bg-zinc-50 dark:bg-zinc-900 border-l-4 border-blue-500 rounded-r-lg px-4 py-4">
@@ -80,6 +80,26 @@ export default function SupportPage() {
             <div className="bg-zinc-50 dark:bg-zinc-900 border-l-4 border-blue-500 rounded-r-lg px-4 py-4">
               <h3 className="font-semibold text-blue-600 dark:text-blue-400 mb-1">How do I cancel my subscription?</h3>
               <p className="text-sm text-zinc-600 dark:text-zinc-400">Subscriptions are managed through your Apple ID. Go to Settings &gt; Apple ID &gt; Subscriptions to manage or cancel.</p>
+            </div>
+
+            <div className="bg-zinc-50 dark:bg-zinc-900 border-l-4 border-blue-500 rounded-r-lg px-4 py-4">
+              <h3 className="font-semibold text-blue-600 dark:text-blue-400 mb-1">Does Ritualist work with Apple Health?</h3>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">Yes! Ritualist can read and write health data like mindful minutes, steps, and water intake. Health integration is optional, disabled by default, and your health data never leaves your device.</p>
+            </div>
+
+            <div className="bg-zinc-50 dark:bg-zinc-900 border-l-4 border-blue-500 rounded-r-lg px-4 py-4">
+              <h3 className="font-semibold text-blue-600 dark:text-blue-400 mb-1">What are timed habits?</h3>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">Timed habits let you track fasting and breathing exercises with built-in protocols. Start a fasting timer, follow guided breathing patterns, log your mood during sessions, and view your history.</p>
+            </div>
+
+            <div className="bg-zinc-50 dark:bg-zinc-900 border-l-4 border-blue-500 rounded-r-lg px-4 py-4">
+              <h3 className="font-semibold text-blue-600 dark:text-blue-400 mb-1">Which languages does Ritualist support?</h3>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">Ritualist is available in English, German, Spanish, French, and Romanian.</p>
+            </div>
+
+            <div className="bg-zinc-50 dark:bg-zinc-900 border-l-4 border-blue-500 rounded-r-lg px-4 py-4">
+              <h3 className="font-semibold text-blue-600 dark:text-blue-400 mb-1">Can I share my achievements?</h3>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">Yes! Ritualist generates shareable snapshot cards for streak milestones, perfect days, and weekly recaps. Share them directly from the app to celebrate your progress.</p>
             </div>
           </div>
         </section>
