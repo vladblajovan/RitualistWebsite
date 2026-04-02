@@ -73,12 +73,8 @@ export default async function RoadmapPage() {
 
       <main className="mx-auto max-w-3xl px-6 py-12">
         <h1 className="text-3xl font-bold mb-2">What&apos;s Next</h1>
-        <p className="text-zinc-500 dark:text-zinc-400 mb-4">
-          Here&apos;s what we&apos;re working on and what&apos;s coming next.
-        </p>
 
         {/* Vote CTA */}
-        {/* Vote in app CTA */}
         <div className="mb-4 rounded-xl border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-900/20 px-4 py-3 flex items-center gap-3">
           <span className="text-2xl">🗳️</span>
           <p className="text-sm text-blue-700 dark:text-blue-300">
@@ -89,6 +85,10 @@ export default async function RoadmapPage() {
 
         {/* Suggest a feature form */}
         <SuggestFeatureForm />
+
+        <p className="text-zinc-500 dark:text-zinc-400 mb-4 mt-8">
+          Here&apos;s what we&apos;re working on and what&apos;s coming next.
+        </p>
 
         {features.length === 0 && (
           <p className="text-center text-zinc-400 dark:text-zinc-500 py-20">
