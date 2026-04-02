@@ -748,10 +748,10 @@ export default function Home() {
                     className="flex justify-center md:justify-start"
                   >
                     <div className="w-full max-w-[240px] md:max-w-[280px]">
-                      <div className="rounded-[28px] border-2 border-amber-200 bg-white p-2 shadow-lg shadow-amber-500/10 transition-all duration-300 hover:shadow-amber-500/20 dark:border-amber-800 dark:bg-zinc-800">
+                      <div className="rounded-[28px] border-2 border-rose-200 bg-white p-2 shadow-lg shadow-rose-500/10 transition-all duration-300 hover:shadow-rose-500/20 dark:border-rose-800 dark:bg-zinc-800">
                         <Image
-                          src="/screenshots/customization.png"
-                          alt="Customize habits with colors, emojis, and categories"
+                          src="/screenshots/health.png"
+                          alt="Apple Health integration showing mindful minutes and activity data"
                           width={280}
                           height={560}
                           className="h-auto w-full rounded-[22px]"
@@ -766,16 +766,16 @@ export default function Home() {
                     transition={{ duration: 0.6, type: 'spring', stiffness: 80, damping: 20 }}
                   >
                     <h3 className="mb-2 flex items-center gap-2 text-xl font-semibold text-black dark:text-white md:mb-4 md:gap-3 md:text-3xl">
-                      <span className="text-2xl md:text-4xl">🎨</span>
-                      Make It Yours
+                      <span className="text-2xl md:text-4xl">❤️</span>
+                      Apple Health
                     </h3>
                     <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 md:text-lg">
-                      Personalize every detail. Choose from custom colors, emojis, and categories to make your habit tracker uniquely yours. Beautiful design meets powerful functionality.
+                      Connect your habits to Apple Health. Sync mindful minutes from breathing sessions, track steps, water intake, and more. Your health data stays on your device — always.
                     </p>
                     <ul className="mt-3 space-y-1 text-xs text-zinc-500 dark:text-zinc-400 md:mt-6 md:space-y-2 md:text-base">
-                      <li className="flex items-center gap-2"><span className="text-[#0A95C2]">✓</span> Custom colors for each habit</li>
-                      <li className="flex items-center gap-2"><span className="text-[#0A95C2]">✓</span> Emoji support</li>
-                      <li className="flex items-center gap-2"><span className="text-[#0A95C2]">✓</span> Flexible categories</li>
+                      <li className="flex items-center gap-2"><span className="text-[#0A95C2]">✓</span> Read and write to Apple Health</li>
+                      <li className="flex items-center gap-2"><span className="text-[#0A95C2]">✓</span> Auto-complete habits from health data</li>
+                      <li className="flex items-center gap-2"><span className="text-[#0A95C2]">✓</span> Mindful minutes, steps, water, and more</li>
                     </ul>
                   </motion.div>
                 </div>
@@ -837,10 +837,10 @@ export default function Home() {
                     className="flex justify-center md:justify-start"
                   >
                     <div className="w-full max-w-[240px] md:max-w-[280px]">
-                      <div className="rounded-[28px] border-2 border-violet-200 bg-white p-2 shadow-lg shadow-violet-500/10 transition-all duration-300 hover:shadow-violet-500/20 dark:border-violet-800 dark:bg-zinc-800">
+                      <div className="rounded-[28px] border-2 border-teal-200 bg-white p-2 shadow-lg shadow-teal-500/10 transition-all duration-300 hover:shadow-teal-500/20 dark:border-teal-800 dark:bg-zinc-800">
                         <Image
-                          src="/screenshots/sync.png"
-                          alt="Seamless iCloud sync across all your devices"
+                          src="/screenshots/timed.png"
+                          alt="Timed habits showing fasting protocols and guided breathing sessions"
                           width={280}
                           height={560}
                           className="h-auto w-full rounded-[22px]"
@@ -855,16 +855,16 @@ export default function Home() {
                     transition={{ duration: 0.6, type: 'spring', stiffness: 80, damping: 20 }}
                   >
                     <h3 className="mb-2 flex items-center gap-2 text-xl font-semibold text-black dark:text-white md:mb-4 md:gap-3 md:text-3xl">
-                      <span className="text-2xl md:text-4xl">☁️</span>
-                      Seamless Everywhere
+                      <span className="text-2xl md:text-4xl">🫁</span>
+                      Fasting & Breathing
                     </h3>
                     <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 md:text-lg">
-                      Your habits follow you. iCloud sync keeps your data up-to-date across all your Apple devices. Start on iPhone, continue on iPad.
+                      Track intermittent fasting with built-in protocols like 16:8 and 20:4. Practice guided breathing with customizable patterns. Log your mood and watch your wellness journey unfold.
                     </p>
                     <ul className="mt-3 space-y-1 text-xs text-zinc-500 dark:text-zinc-400 md:mt-6 md:space-y-2 md:text-base">
-                      <li className="flex items-center gap-2"><span className="text-[#0A95C2]">✓</span> Automatic iCloud synchronization</li>
-                      <li className="flex items-center gap-2"><span className="text-[#0A95C2]">✓</span> Real-time updates across devices</li>
-                      <li className="flex items-center gap-2"><span className="text-[#0A95C2]">✓</span> Your data stays private</li>
+                      <li className="flex items-center gap-2"><span className="text-[#0A95C2]">✓</span> Fasting protocols with smart timers</li>
+                      <li className="flex items-center gap-2"><span className="text-[#0A95C2]">✓</span> Guided breathing with haptic feedback</li>
+                      <li className="flex items-center gap-2"><span className="text-[#0A95C2]">✓</span> Mood tracking during sessions</li>
                     </ul>
                   </motion.div>
                 </div>
@@ -885,13 +885,12 @@ export default function Home() {
                       Your Privacy, Protected
                     </h3>
                     <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 md:text-lg">
-                      Everything runs on your device. Your habit data, personality insights, and personal information never leave your control. No tracking, no data collection, no compromises.
+                      Your habit data stays on your device and in your personal iCloud account. Personality insights are processed locally. Your journey is yours alone.
                     </p>
                     <ul className="mt-3 space-y-1 text-xs text-zinc-500 dark:text-zinc-400 md:mt-6 md:space-y-2 md:text-base">
-                      <li className="flex items-center gap-2"><span className="text-[#0A95C2]">✓</span> 100% on-device processing</li>
-                      <li className="flex items-center gap-2"><span className="text-[#0A95C2]">✓</span> Zero data collection</li>
-                      <li className="flex items-center gap-2"><span className="text-[#0A95C2]">✓</span> You own your data completely</li>
-                      <li className="flex items-center gap-2"><span className="text-[#0A95C2]">✓</span> No third-party tracking</li>
+                      <li className="flex items-center gap-2"><span className="text-[#0A95C2]">✓</span> On-device ML processing</li>
+                      <li className="flex items-center gap-2"><span className="text-[#0A95C2]">✓</span> Your data stays yours</li>
+                      <li className="flex items-center gap-2"><span className="text-[#0A95C2]">✓</span> No ads, no social pressure</li>
                     </ul>
                   </motion.div>
                   <motion.div
