@@ -349,17 +349,8 @@ export default function Home() {
                   onClick={() => trackEvent({ action: 'nav_click', category: 'navigation', label: 'roadmap' })}
                   className={navLinkClass}
                 >
-                  Roadmap
+                  What&apos;s Next
                 </Link>
-                <a
-                  href="https://vladblajovan.github.io"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => trackEvent({ action: 'outbound_click', category: 'engagement', label: 'meet_me' })}
-                  className={navLinkClass}
-                >
-                  Meet me
-                </a>
               </div>
 
               {/* Mobile Hamburger */}
