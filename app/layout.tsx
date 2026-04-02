@@ -17,9 +17,9 @@ const siteUrl = "https://vladblajovan.github.io/RitualistApp";
 
 export const metadata: Metadata = {
   title: "Ritualist - Build Better Habits",
-  description: "Transform your life with habits that actually stick. Get AI-powered insights, location reminders, and beautiful analytics. Privacy-first. No social pressure.",
+  description: "Transform your life with habits that actually stick. Track fasting, breathing, and daily habits with AI insights, Apple Health integration, and privacy-first design.",
   metadataBase: new URL(siteUrl),
-  keywords: ["habit tracker", "iOS app", "productivity", "personality insights", "privacy-first", "location-based reminders", "iCloud sync", "machine learning"],
+  keywords: ["habit tracker", "iOS app", "productivity", "personality insights", "privacy-first", "Apple Health", "fasting tracker", "breathing exercises", "wellness", "mindful minutes", "iCloud sync", "machine learning"],
   authors: [{ name: "Vlad Blajovan" }],
   creator: "Vlad Blajovan",
   publisher: "Ritualist",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     title: "Ritualist - Privacy-First Habit Tracker for iOS",
-    description: "Build better habits with AI-powered personality insights, location-based reminders, and beautiful analytics. Privacy-first, on-device processing, iCloud sync.",
+    description: "Build better habits with AI-powered insights, Apple Health integration, fasting and breathing tracking. Privacy-first, on-device processing, iCloud sync.",
     siteName: "Ritualist",
     images: [
       {
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Ritualist - Privacy-First Habit Tracker for iOS",
-    description: "Build better habits with AI-powered personality insights, location-based reminders, and beautiful analytics.",
+    description: "Build better habits with AI-powered insights, Apple Health integration, and fasting and breathing tracking. Privacy-first.",
     images: ["/og-image.png"],
     creator: "@ritualistapp",
   },
