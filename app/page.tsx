@@ -1409,6 +1409,37 @@ export default function Home() {
             </div>
           </section>
 
+          {/* Beta Section */}
+          <section className="border-t border-zinc-200 bg-zinc-50 px-6 py-16 dark:border-zinc-800 dark:bg-zinc-900/50">
+            <div className="mx-auto max-w-3xl text-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                <span className="mb-4 inline-block rounded-full bg-amber-100 px-4 py-1 text-sm font-medium text-amber-800 dark:bg-amber-900/30 dark:text-amber-400">
+                  Beta
+                </span>
+                <h2 className="mb-3 text-2xl font-bold text-black dark:text-white md:text-3xl">
+                  Try upcoming features early
+                </h2>
+                <p className="mb-8 text-zinc-600 dark:text-zinc-400">
+                  Join the beta via TestFlight to get early access to new features, provide feedback, and help shape the future of Ritualist.
+                </p>
+                <a
+                  href="https://testflight.apple.com/join/RVMZXfse"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackEvent({ action: 'testflight_click', category: 'conversion', label: 'beta_section' })}
+                  className="inline-flex items-center gap-2 rounded-full border border-amber-300 bg-amber-50 px-6 py-3 text-sm font-semibold text-amber-900 transition-all hover:scale-105 active:scale-[0.97] hover:bg-amber-100 dark:border-amber-700 dark:bg-amber-900/20 dark:text-amber-300 dark:hover:bg-amber-900/40"
+                >
+                  <FaApple className="h-4 w-4" />
+                  Join TestFlight Beta
+                </a>
+              </motion.div>
+            </div>
+          </section>
+
         </main>
 
         {/* Footer */}
