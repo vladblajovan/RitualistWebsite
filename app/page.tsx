@@ -6,7 +6,8 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, MotionConfig, AnimatePresence, useInView } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { trackEvent, clearConsent } from './lib/analytics';
+import { trackEvent } from './lib/analytics';
+import CookieSettingsButton from './components/CookieSettingsButton';
 
 
 const taglines = [
@@ -1558,12 +1559,7 @@ export default function Home() {
                 © 2025–{new Date().getFullYear()} Ritualist.
               </span>
               <div className="flex items-center gap-3">
-                <button
-                  onClick={() => { clearConsent(); window.location.reload(); }}
-                  className="text-xs text-zinc-400 underline underline-offset-2 transition-colors hover:text-zinc-600 dark:hover:text-zinc-300"
-                >
-                  Cookie Settings
-                </button>
+                <CookieSettingsButton />
                 <button
                   onClick={() => document.documentElement.classList.toggle('dark')}
                   aria-label="Toggle theme"

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import CookieSettingsButton from '../components/CookieSettingsButton';
 
 export const metadata: Metadata = {
   title: 'Terms of Service - Ritualist',
@@ -198,7 +199,10 @@ export default function TermsPage() {
           </div>
         </section>
 
-        <p className="text-center text-sm text-zinc-400 dark:text-zinc-500">© 2025–{new Date().getFullYear()} Ritualist. All rights reserved.</p>
+        <div className="flex flex-col items-center gap-2">
+          <p className="text-sm text-zinc-400 dark:text-zinc-500">© 2025–{new Date().getFullYear()} Ritualist. All rights reserved.</p>
+          <CookieSettingsButton />
+        </div>
       </main>
     </div>
   );

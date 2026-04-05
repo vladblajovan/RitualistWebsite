@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import SuggestFeatureForm from './SuggestFeatureForm';
+import CookieSettingsButton from '../components/CookieSettingsButton';
 
 export const metadata: Metadata = {
   title: "What's Next - Ritualist",
@@ -182,6 +183,7 @@ export default async function RoadmapPage() {
               Vlad Blajovan
             </a>
           </span>
+          <CookieSettingsButton />
         </div>
       </footer>
     </div>

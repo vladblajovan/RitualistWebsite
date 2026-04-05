@@ -40,8 +40,7 @@ export default function ConsentBanner({ onConsent }: { onConsent: (granted: bool
         >
           <div className="mx-auto max-w-xl rounded-2xl border border-zinc-200 bg-white p-5 shadow-lg dark:border-zinc-700 dark:bg-zinc-900">
             <p className="mb-4 text-sm text-zinc-600 dark:text-zinc-400">
-              We use cookies to understand how visitors interact with our site.
-              No personal data is collected or shared.{' '}
+              We use cookies for anonymous site analytics to understand how visitors interact with our site.{' '}
               <Link href="/privacy" className="underline underline-offset-2 hover:text-black dark:hover:text-white">
                 Privacy Policy
               </Link>

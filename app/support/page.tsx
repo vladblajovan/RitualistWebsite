@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import CookieSettingsButton from '../components/CookieSettingsButton';
 
 export const metadata: Metadata = {
   title: 'Support - Ritualist',
@@ -110,6 +111,7 @@ export default function SupportPage() {
             <Link href="/terms" className="hover:text-zinc-900 dark:hover:text-white transition-colors">Terms of Service</Link>
           </div>
           <p className="text-sm text-zinc-400 dark:text-zinc-500">© 2025–{new Date().getFullYear()} Ritualist. All rights reserved.</p>
+          <CookieSettingsButton />
         </div>
       </main>
     </div>
