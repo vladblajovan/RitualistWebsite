@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useCallback, useRef } from 'react';
+import { useEffect, useCallback, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import { getConsent } from '../lib/analytics';
 import ConsentBanner from './ConsentBanner';
@@ -8,20 +8,24 @@ import ConsentBanner from './ConsentBanner';
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 export default function AnalyticsProvider() {
-  const [loadGA, setLoadGA] = useState(false);
   const pathname = usePathname();
-  const gaInitialized = useRef(false);
-  const consentDefaultSet = useRef(false);
+  const initialized = useRef(false);
 
-  // Set Consent Mode v2 defaults before anything else
+  // Initialize gtag.js immediately with Consent Mode v2 defaults.
+  // gtag.js must load BEFORE consent so Google receives anonymized
+  // "cookieless pings" — this is what makes GA4 consider the tag active.
+  // Cookies are only enabled after the user grants consent via the banner.
   useEffect(() => {
-    if (!GA_ID || consentDefaultSet.current) return;
-    consentDefaultSet.current = true;
+    if (!GA_ID || initialized.current) return;
+    initialized.current = true;
 
-    const defaultScript = document.createElement('script');
-    defaultScript.textContent = `
+    // 1. Set Consent Mode v2 defaults BEFORE gtag.js loads. The initial
+    //    `config` call suppresses the automatic pageview — the pathname
+    //    effect below owns pageview tracking so we don't double-count.
+    const bootstrap = document.createElement('script');
+    bootstrap.textContent = `
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      window.gtag = function gtag(){ window.dataLayer.push(arguments); };
       gtag('consent', 'default', {
         analytics_storage: 'denied',
         ad_storage: 'denied',
@@ -29,55 +33,42 @@ export default function AnalyticsProvider() {
         ad_personalization: 'denied',
         wait_for_update: 500
       });
-    `;
-    document.head.appendChild(defaultScript);
-  }, []);
-
-  useEffect(() => {
-    if (getConsent() === 'granted') {
-      setLoadGA(true);
-    }
-  }, []);
-
-  // Inject GA scripts via DOM when consent is granted
-  useEffect(() => {
-    if (!loadGA || !GA_ID || gaInitialized.current) return;
-    gaInitialized.current = true;
-
-    // Update consent state to granted
-    if (window.gtag) {
-      window.gtag('consent', 'update', { analytics_storage: 'granted' });
-    }
-
-    // Inject Google's exact gtag snippet via inline script
-    const inline = document.createElement('script');
-    inline.textContent = `
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('consent', 'update', { analytics_storage: 'granted' });
+      gtag('set', 'ads_data_redaction', true);
+      gtag('set', 'url_passthrough', true);
       gtag('js', new Date());
-      gtag('config', '${GA_ID}');
+      gtag('config', '${GA_ID}', { send_page_view: false });
     `;
-    document.head.appendChild(inline);
+    document.head.appendChild(bootstrap);
 
-    // Load the gtag.js script
-    const script = document.createElement('script');
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
-    script.async = true;
-    document.head.appendChild(script);
-  }, [loadGA]);
+    // 2. Load gtag.js immediately. Done before the consent lookup so a
+    //    localStorage exception (e.g. Safari private mode) can't prevent
+    //    gtag.js from loading.
+    const gtagScript = document.createElement('script');
+    gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+    gtagScript.async = true;
+    document.head.appendChild(gtagScript);
 
-  // Track client-side page navigations
+    // 3. Upgrade consent if the user previously accepted the banner.
+    try {
+      if (getConsent() === 'granted') {
+        window.gtag?.('consent', 'update', { analytics_storage: 'granted' });
+      }
+    } catch {
+      // localStorage unavailable — treat as no prior consent.
+    }
+  }, []);
+
+  // Track client-side page navigations.
   useEffect(() => {
-    if (loadGA && window.gtag && GA_ID) {
+    if (window.gtag && GA_ID) {
       window.gtag('config', GA_ID, { page_path: pathname });
     }
-  }, [pathname, loadGA]);
+  }, [pathname]);
 
   const handleConsent = useCallback((granted: boolean) => {
-    if (granted) {
-      setLoadGA(true);
-    }
+    window.gtag?.('consent', 'update', {
+      analytics_storage: granted ? 'granted' : 'denied',
+    });
   }, []);
 
   return <ConsentBanner onConsent={handleConsent} />;
